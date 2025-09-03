@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boituva – Capital do Balonismo e Aventura</title>
+  <!-- Corrigido: CSS está na mesma pasta -->
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roxo: #6a0dad;
+      --azul: #0a2647;
+      --grad: linear-gradient(135deg, #6a0dad, #0a2647);
+      --branco: #fff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body { background:#0a0a0a; color:var(--branco); overflow-x:hidden; }
+    .hero {
+      position:relative; height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; color:var(--branco);
+      background: url('https://agendasorocaba.com.br/wp-content/uploads/2024/06/campeonato-brasileiro-de-balonismo-em-boituva.jpg') center/cover no-repeat;
+    }
+    .hero::after {
+      content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.6);
+    }
+    .hero h1 {
+      position:relative; font-size:3rem; z-index:2;
+      text-shadow:0 0 15px #6a0dad; animation: fadeIn 2s ease;
+    }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+    section { padding:4rem 8%; }
+    h2 {
+      text-align:center; font-size:2rem; margin-bottom:2rem;
+      background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .galeria {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px;
+    }
+    .galeria img {
+      width:100%; border-radius:12px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.4); transition:.4s;
+    }
+    .galeria img:hover { transform:scale(1.05); }
+    .cards {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;
+    }
+    .card {
+      background:#111; border-radius:15px; overflow:hidden;
+      box-shadow:0 5px 20px rgba(0,0,0,0.5); transition:.4s;
+    }
+    .card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 10px 30px rgba(106,13,173,0.6); }
+    .card img { width:100%; height:200px; object-fit:cover; }
+    .card .conteudo { padding:1.5rem; }
+    .card h3 { color:#b19cd9; margin-bottom:10px; }
+    .card p { color:#ccc; font-size:.95rem; }
+    .mapa iframe { width:100%; height:450px; border:0; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.5); }
+    footer { text-align:center; padding:2rem; background:#111; color:#aaa; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Boituva – A Capital do Balonismo e Aventura</h1>
+  </div>
+  <section>
+    <h2>Belezas de Boituva</h2>
+    <div class="galeria">
+      <img src="https://agendasorocaba.com.br/wp-content/uploads/2024/06/campeonato-brasileiro-de-balonismo-em-boituva.jpg" alt="Balonismo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Centro_Nacional_de_Paraquedismo_-_Boituva_SP.jpg/1280px-Centro_Nacional_de_Paraquedismo_-_Boituva_SP.jpg" alt="Paraquedismo">
+      <img src="https://visitesaopaulo.com/wp-content/uploads/2022/10/parque-ecologico-boituva.jpg" alt="Parque Ecológico">
+      <img src="https://www.mundoviajante.com/wp-content/uploads/2021/06/museu-tropeiro-boituva.jpg" alt="Museu do Tropeiro">
+    </div>
+  </section>
+  <section>
+    <h2>O que Fazer em Boituva</h2>
+    <div class="cards">
+      <div class="card"><img src="https://cdn.guiaviajarmelhor.com.br/2021/06/balonismo-boituva.jpg" alt="Balonismo"><div class="conteudo"><h3>Balonismo</h3><p>Experiência única de voar em balões coloridos ao nascer do sol. Marca registrada da cidade.</p></div></div>
+      <div class="card"><img src="https://www.cnp.esp.br/img/parachute.jpg" alt="Paraquedismo"><div class="conteudo"><h3>Paraquedismo</h3><p>O maior centro de paraquedismo do Brasil, com saltos duplos e eventos nacionais.</p></div></div>
+      <div class="card"><img src="https://www.boituva.sp.gov.br/wp-content/uploads/2021/10/parque-ecologico.jpg" alt="Parque Ecológico"><div class="conteudo"><h3>Parque Ecológico Eugênio Walter</h3><p>Trilhas, lago, zoológico, arvorismo e espaços de lazer para toda a família.</p></div></div>
+      <div class="card"><img src="https://www.mundoviajante.com/wp-content/uploads/2021/06/museu-tropeiro-boituva.jpg" alt="Museu do Tropeiro"><div class="conteudo"><h3>Museu do Tropeiro</h3><p>Rico acervo com mais de 700 peças que contam a história dos tropeiros.</p></div></div>
+      <div class="card"><img src="https://revistacarro.com.br/wp-content/uploads/2022/06/boituva-fazenda-pinhal.jpg" alt="Fazenda Pinhal"><div class="conteudo"><h3>Fazenda Pinhal</h3><p>Produção da cachaça Três Coronéis, passeios guiados e degustações culturais.</p></div></div>
+    </div>
+  </section>
+  <section>
+    <h2>Localização</h2>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.484872326725!2d-47.8673!3d-23.3451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c63b3e65cbaf43%3A0x3c7f7e6e82d3e9f!2sBoituva%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1693350912345!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+  <footer><p>© 2025 Aurora Viagens | Boituva - SP</p></footer>
+</body>
+</html>

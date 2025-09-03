@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Viagens - Login & Cadastro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --roxo: #8a2be2;
+      --roxo-escuro: #4b0082;
+      --preto: #000000;
+      --branco: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #000, #1a001a, #2d004d, #4b0082);
+      background-size: 400% 400%;
+      animation: gradient 12s ease infinite;
+      color: var(--branco);
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      width: 400px;
+      background: rgb(0, 0, 0);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .logo {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--roxo);
+    }
+    .tabs {
+      display: flex; justify-content: space-around; margin-bottom: 2rem;
+    }
+    .tab {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #bbb;
+      transition: 0.3s;
+    }
+    .tab.active {
+      background: var(--roxo);
+      color: var(--branco);
+      box-shadow: 0 4px 10px rgba(138,43,226,0.5);
+    }
+    .form { display: none; animation: fadeIn 0.6s ease; }
+    .form.active { display: block; }
+    .form h2 { margin-bottom: 1.5rem; color: var(--branco); }
+    .form-group { margin-bottom: 1rem; text-align: left; }
+    .form-group label { display: block; margin-bottom: 0.3rem; font-size: 0.9rem; color: #ddd; }
+    .form-group input {
+      width: 100%; padding: 0.8rem; border: none; border-radius: 12px;
+      background: rgba(255,255,255,0.15); color: var(--branco);
+      outline: none; transition: 0.3s;
+    }
+    .form-group input:focus { background: rgba(255,255,255,0.25); box-shadow: 0 0 5px var(--roxo); }
+    .btn {
+      width: 100%; padding: 0.9rem; border: none; border-radius: 30px;
+      background: linear-gradient(135deg, var(--roxo), var(--roxo-escuro));
+      color: var(--branco); font-weight: bold; cursor: pointer;
+      margin-top: 1rem; transition: 0.3s;
+    }
+    .btn:hover { box-shadow: 0 5px 20px rgba(138,43,226,0.6); transform: translateY(-2px); }
+    .form-footer { margin-top: 1rem; font-size: 0.9rem; color: #ccc; }
+    .form-footer a { color: var(--roxo); text-decoration: none; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo"><i class="fas fa-plane"></i> Aurora Viagens</div>
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('login')">Login</div>
+      <div class="tab" onclick="switchTab('cadastro')">Cadastro</div>
+    </div>
+    <form class="form active" id="login">
+      <h2>Bem-vindo!</h2>
+      <div class="form-group">
+        <label for="login-email">E-mail</label>
+        <input type="email" id="login-email" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="login-pass">Senha</label>
+        <input type="password" id="login-pass" placeholder="••••••••" required>
+      </div>
+      <button class="btn">Entrar</button>
+      <p class="form-footer">Esqueceu sua senha? <a href="#">Recuperar</a></p>
+    </form>
+    <form class="form" id="cadastro">
+      <h2>Crie sua conta</h2>
+      <div class="form-group">
+        <label for="cad-nome">Nome</label>
+        <input type="text" id="cad-nome" placeholder="Seu nome completo" required>
+      </div>
+      <div class="form-group">
+        <label for="cad-email">E-mail</label>
+        <input type="email" id="cad-email" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="cad-pass">Senha</label>
+        <input type="password" id="cad-pass" placeholder="••••••••" required>
+      </div>
+      <div class="form-group">
+        <label for="cad-conf">Confirmar Senha</label>
+        <input type="password" id="cad-conf" placeholder="••••••••" required>
+      </div>
+      <button class="btn">Cadastrar</button>
+      <p class="form-footer">Já tem conta? <a href="#" onclick="switchTab('login')">Login</a></p>
+    </form>
+  </div>
+  <script>
+    function switchTab(tab){
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+      document.querySelector(`.tab[onclick="switchTab('${tab}')"]`).classList.add('active');
+      document.getElementById(tab).classList.add('active');
+    }
+  </script>
+</body>
+</html>
