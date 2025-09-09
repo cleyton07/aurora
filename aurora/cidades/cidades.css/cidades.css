@@ -1,0 +1,325 @@
+/* ========================
+   VARIÁVEIS GLOBAIS
+======================== */
+:root {
+    --roxo-claro: #9b59b6;
+    --roxo: #6a0dad;
+    --roxo-escuro: #4b0082;
+    --grad-roxo: linear-gradient(135deg, #9b59b6, #6a0dad);
+    --grad-botoes: linear-gradient(135deg, #6a0dad, #4b0082);
+    --cinza-claro: #ccc;
+    --cinza-escuro: #222;
+    --branco: #fff;
+    --sombra-card: rgba(106,13,173,0.5);
+    --transicao: all 0.3s ease;
+  }
+  
+  /* ========================
+     RESET GLOBAL
+  ======================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #0a0a0a;
+    color: var(--branco);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  /* ========================
+     HEADER
+  ======================== */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cinza-escuro);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+    z-index: 1000;
+  }
+  
+  header .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--grad-roxo);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: var(--transicao);
+  }
+  
+  header nav ul li a:hover {
+    background: var(--grad-botoes);
+    color: var(--branco);
+  }
+  
+  /* ========================
+     HERO
+  ======================== */
+  .hero-split {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px;
+    background: url('https://agendasorocaba.com.br/wp-content/uploads/2024/06/campeonato-brasileiro-de-balonismo-em-boituva.jpg') center/cover no-repeat;
+    position: relative;
+  }
+  
+  .hero-split::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    top: 0; left: 0;
+  }
+  
+  .hero-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    background: var(--grad-roxo);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.5s ease;
+    text-shadow: 0 0 15px var(--roxo);
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--cinza-claro);
+  }
+  
+  .hero-text .btn {
+    padding: 0.8rem 2rem;
+    background: var(--grad-botoes);
+    border: none;
+    border-radius: 30px;
+    color: var(--branco);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao);
+    text-decoration: none;
+  }
+  
+  .hero-text .btn:hover {
+    background: var(--roxo-escuro);
+  }
+  
+  .hero-img {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-img img {
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    animation: fadeInImg 2s ease;
+  }
+  
+  /* ========================
+     CARDS FLIP
+  ======================== */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+  }
+  
+  .card {
+    perspective: 1200px;
+    position: relative;
+  }
+  
+  .card-front, .card-back {
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+    box-shadow: 0 5px 20px var(--sombra-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
+  .card-front {
+    background: #111;
+  }
+  
+  .card-front img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+  }
+  
+  .card-front h3 {
+    color: var(--roxo);
+  }
+  
+  .card-back {
+    background: var(--roxo-escuro);
+    color: var(--branco);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    padding: 2rem;
+  }
+  
+  .card:hover .card-front {
+    transform: rotateY(180deg);
+  }
+  
+  .card:hover .card-back {
+    transform: rotateY(0deg);
+  }
+  
+  /* ========================
+     GALERIA
+  ======================== */
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 1rem;
+    padding: 2rem 5%;
+  }
+  
+  .galeria img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+    transition: transform 0.4s, box-shadow 0.4s;
+  }
+  
+  .galeria img:hover {
+    transform: scale(1.08) rotate(1deg);
+    box-shadow: 0 10px 35px rgba(106,13,173,0.7);
+  }
+  
+  /* ========================
+     MAPA (MAIOR E PROFISSIONAL)
+  ======================== */
+  .mapa {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+  }
+  
+  .mapa iframe {
+    width: 95%;
+    max-width: 1400px;
+    height: 600px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transition: transform 0.3s;
+  }
+  
+  .mapa iframe:hover {
+    transform: scale(1.02);
+  }
+  
+  /* ========================
+     FOOTER
+  ======================== */
+  footer {
+    background: #111;
+    text-align: center;
+    padding: 3rem 5%;
+    color: var(--cinza-claro);
+  }
+  
+  footer .social-icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  footer .social-icons a {
+    color: var(--branco);
+    font-size: 1.2rem;
+    background: var(--roxo);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transicao);
+  }
+  
+  footer .social-icons a:hover {
+    background: var(--roxo-escuro);
+    transform: translateY(-5px);
+  }
+  
+  /* ========================
+     ANIMAÇÕES
+  ======================== */
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  
+  @keyframes fadeInImg {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+  
+  /* ========================
+     RESPONSIVO
+  ======================== */
+  @media(max-width:768px){
+    .hero-split { flex-direction: column; }
+    header nav ul { flex-direction: column; gap: 1rem; margin-top: 0.5rem; }
+    .mapa iframe { height: 450px; }
+  }
+  
