@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Turismo - Interior de Sorocaba</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6a0dad;
+            --primary-light: #8a2be2;
+            --primary-dark: #4b0082;
+            --secondary: #ffffff;
+            --accent: #000000;
+            --text: #333333;
+            --light-bg: #f8f5ff;
+            --chat-user: #e6e0ff;
+            --chat-ai: #f0edf7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: var(--secondary);
+            padding: 1rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+        
+        /* AI Assistant Section */
+        .ai-assistant {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+        
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .chat-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chat-header-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .chat-header-text p {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            height: 400px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message {
+            padding: 1rem 1.5rem;
+            border-radius: 18px;
+            max-width: 85%;
+            animation: fadeIn 0.5s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .ai-message {
+            background: var(--chat-ai);
+            border-top-left-radius: 5px;
+            align-self: flex-start;
+            color: var(--text);
+        }
+        
+        .user-message {
+            background: var(--chat-user);
+            border-top-right-radius: 5px;
+            margin-left: auto;
+            color: var(--text);
+        }
+        
+        .message-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .message-content ul, .message-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .message-content li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .chat-input-container {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chat-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .send-button {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            background: var(--secondary);
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .send-button:hover {
+            background: #ffcc00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .suggestion-chip {
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .suggestion-chip:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--secondary);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chat-messages {
+                height: 50vh;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+            
+            .chat-input-container {
+                flex-direction: column;
+            }
+            
+            .send-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>IA Turismo Interior SP</span>
+            </div>
+        </header>
+        
+        <p class="tagline">Sua assistente virtual para explorar as belezas do interior de Sorocaba</p>
+
+        <!-- AI Assistant Section -->
+        <section class="ai-assistant">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="chat-header-text">
+                    <h2>TurismoIA</h2>
+                    <p>Especialista em turismo regional</p>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai-message">
+                    <div class="message-content">
+                        <h3>Olá! Sou sua assistente de viagens inteligente</h3>
+                        <p>Posso ajudar você a descobrir os melhores destinos, restaurantes e experiências na região de Sorocaba, incluindo:</p>
+                        <ul>
+                            <li><strong>Boituva</strong> - Capital do Balonismo</li>
+                            <li><strong>Tatuí</strong> - Capital da Música</li>
+                            <li><strong>Cesário Lange</strong> - Ecoturismo e aventura</li>
+                            <li><strong>Outras cidades</strong> da região</li>
+                        </ul>
+                        <p>Sobre qual cidade você gostaria de informações?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="suggestions">
+                <div class="suggestion-chip" data-query="Boituva">Boituva</div>
+                <div class="suggestion-chip" data-query="Tatuí">Tatuí</div>
+                <div class="suggestion-chip" data-query="Cesário Lange">Cesário Lange</div>
+                <div class="suggestion-chip" data-query="Restaurantes">Restaurantes</div>
+                <div class="suggestion-chip" data-query="Eventos">Eventos</div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="userInput" placeholder="Digite sua pergunta...">
+                <button class="send-button" id="sendMessage"><i class="fas fa-paper-plane"></i> Enviar</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 IA Turismo Interior SP. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Database de informações detalhadas
+        const cityData = {
+            'boituva': {
+                name: 'Boituva',
+                description: 'Conhecida como a Capital do Balonismo, Boituva é um dos principais destinos de ecoturismo e esportes de aventura do interior paulista.',
+                attractions: [
+                    'Voo de Balão - experiência única sobre as paisagens da região',
+                    'Parque de Eventos - local do Festival Internacional de Balonismo',
+                    'Recanto da Cachoeira - área de lazer com cachoeiras e piscinas naturais',
+                    'Igreja Matriz de São João Batista - construção histórica do século XIX',
+                    'Museu do Balonismo - acervo dedicado à história do balonismo na região'
+                ],
+                restaurants: [
+                    'Restaurante e Pizzaria Nova Boituva - culinária italiana e brasileira',
+                    'Churrascaria Boi Show - carnes nobres e buffet completo',
+                    'Restaurante Sabor da Terra - comida caseira e ambiente familiar',
+                    'Pizzaria Forno de Minas - pizzas no forno a lenha',
+                    'Lanchonete e Restaurante Estação - pratos rápidos e saborosos'
+                ],
+                events: [
+                    'Festival Internacional de Balonismo (Junho/Julho) - maior evento da cidade',
+                    'Festa de São João Batista (Junho) - festa padroeira com comidas típicas',
+                    'Aniversário da Cidade (14 de Março) - eventos cívicos e culturais',
+                    'Festa do Peão (Agosto) - rodeio e shows sertanejos'
+                ],
+                hotels: [
+                    'Hotel Slaviero Boituva - 4 estrelas com piscina e restaurante',
+                    'Recanto da Cachoeira Hotel - ambiente familiar com área de lazer',
+                    'Pousada Balonismo - próxima ao Parque de Eventos',
+                    'Hotel Fazenda São José - experiência rural completa'
+                ],
+                tips: 'A melhor época para visitar Boituva é durante o inverno (Junho a Agosto), quando acontece o Festival de Balonismo e o clima é mais ameno para atividades ao ar livre.'
+            },
+            'tatuí': {
+                name: 'Tatuí',
+                description: 'Famosa como a Capital da Música, Tatuí possui um dos mais importantes conservatórios do Brasil e richa história cultural.',
+                attractions: [
+                    'Conservatório Dramático e Musical Dr. Carlos de Campos - um dos mais tradicionais do país',
+                    'Museu Histórico Paulo Setúbal - acervo sobre a história local e o escritor tatuiano',
+                    'Teatro Procópio Ferreira - importante casa de espetáculos da região',
+                    'Igreja Matriz de Santo Antônio - construção centenária no centro da cidade',
+                    'Parque Municipal Maria Tuca - área de lazer com quadras e playground'
+                ],
+                restaurants: [
+                    'Villa Itália Restaurante - culinária italiana autêntica',
+                    'Restaurante e Churrascaria Tia Néia - carnes especiais e buffet diversificado',
+                    'Restaurante São Bento - comida caseira e preços acessíveis',
+                    'Pizzaria Donatello - pizzas artesanais e ambiente familiar',
+                    'Lanchonete e Restaurante Central - tradição desde 1950'
+                ],
+                events: [
+                    'Festival de Música de Tatuí (Julho) - um dos mais importantes do país',
+                    'Festa de Santo Antônio (Junho) - festa do padroeiro com quermesse',
+                    'Tatuí Country (Setembro) - festival de música sertaneja',
+                    'Feira Industrial e Comercial (Outubro) - exposição de produtos locais'
+                ],
+                hotels: [
+                    'Hotel São Paulo Tatuí - localização central e conforto',
+                    'Pousada Villa dos Ipês - ambiente tranquilo e acolhedor',
+                    'Hotel Fazenda Recanto das Acácias - experiência rural próxima à cidade',
+                    'Hotel Business Tatuí - foco em conforto para executivos'
+                ],
+                tips: 'Para os amantes de música, a programação do Conservatório de Tatuí oferece concertos e apresentações durante todo o ano, muitas vezes gratuitas.'
+            },
+            'cesário lange': {
+                name: 'Cesário Lange',
+                description: 'Cesário Lange é conhecida pelo famoso Sítio do Carroção, um dos melhores destinos de ecoturismo e turismo educativo do Brasil.',
+                attractions: [
+                    'Sítio do Carroção - complexo turístico com atividades educativas e de aventura',
+                    'Parque Aquático - com tobogãs, piscinas e atrações aquáticas',
+                    'Igreja Matriz de São Roque - construção histórica no centro da cidade',
+                    'Represa do Rio Capivari - local para pesca e contemplação da natureza',
+                    'Museu Municipal - acervo histórico e cultural da cidade'
+                ],
+                restaurants: [
+                    'Restaurante do Sítio do Carroção - comida caseira em ambiente rústico',
+                    'Restaurante e Pizzaria Ki Delícia - variedade de pratos e pizzas',
+                    'Lanchonete e Restaurante Central - opções rápidas e saborosas',
+                    'Churrascaria e Restaurante Boi na Brasa - carnes especiais e buffet',
+                    'Bar e Restaurante do Paulinho - petiscos e pratos regionais'
+                ],
+                events: [
+                    'Festa de São Roque (Agosto) - festa do padroeiro com barraquinhas',
+                    'Aniversário da Cidade (20 de Novembro) - eventos cívicos e culturais',
+                    'Festival de Inverno (Julho) - comidas típicas e apresentações culturais',
+                    'Feira de Artesanato (todo domingo) - produtos artesanais locais'
+                ],
+                hotels: [
+                    'Sítio do Carroção - hospedagem completa com todas as atividades inclusas',
+                    'Pousada Recanto das Flores - ambiente familiar e acolhedor',
+                    'Hotel Fazenda São Francisco - experiência rural com animais',
+                    'Pousada Estância das Palmeiras - tranquilidade e contato com a natureza'
+                ],
+                tips: 'Para visitar o Sítio do Carroção, é essencial fazer reserva com antecedência, especialmente em feriados e férias escolares.'
+            }
+        };
+
+        // Elementos do DOM
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendMessageBtn = document.getElementById('sendMessage');
+        const suggestionChips = document.querySelectorAll('.suggestion-chip');
+
+        // Adicionar mensagem ao chat
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'ai-message');
+            
+            messageDiv.innerHTML = `<div class="message-content">${message}</div>`;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Processar mensagem do usuário
+        function processMessage() {
+            const message = userInput.value.trim();
+            
+            if (message) {
+                addMessage(message, true);
+                userInput.value = '';
+                
+                // Simular "digitando..."
+                const thinkingDiv = document.createElement('div');
+                thinkingDiv.classList.add('message', 'ai-message');
+                thinkingDiv.innerHTML = '<div class="message-content"><i class="fas fa-circle-notch fa-spin"></i> Pensando...</div>';
+                chatMessages.appendChild(thinkingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                setTimeout(() => {
+                    chatMessages.removeChild(thinkingDiv);
+                    generateResponse(message.toLowerCase());
+                }, 1500);
+            }
+        }
+
+        // Gerar resposta da IA
+        function generateResponse(message) {
+            let response = '';
+            
+            if (message.includes('boituva')) {
+                response = generateCityResponse('boituva');
+            } else if (message.includes('tatuí') || message.includes('tatui')) {
+                response = generateCityResponse('tatuí');
+            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
+                response = generateCityResponse('cesário lange');
+            } else if (message.includes('restaurant') || message.includes('comida') || message.includes('onde comer')) {
+                response = generateRestaurantResponse(message);
+            } else if (message.includes('hotel') || message.includes('hospedagem') || message.includes('onde ficar')) {
+                response = generateHotelResponse(message);
+            } else if (message.includes('evento') || message.includes('o que fazer')) {
+                response = generateEventResponse(message);
+            } else if (message.includes('ajuda') || message.includes('help')) {
+                response = '<h3>Como posso ajudar?</h3><p>Posso fornecer informações sobre:</p><ul><li>Pontos turísticos</li><li>Restaurantes</li><li>Eventos</li><li>Hospedagem</li><li>Dicas de viagem</li></ul><p>Para quais cidades da região você gostaria de informações?</p>';
+            } else {
+                response = '<h3>Não entendi completamente</h3><p>Posso ajudar com informações sobre Boituva, Tatuí, Cesário Lange e outras cidades da região de Sorocaba.</p><p>Você pode me perguntar sobre:</p><ul><li>Pontos turísticos</li><li>Restaurantes</li><li>Eventos e festas</li><li>Opções de hospedagem</li><li>Dicas de viagem</li></ul><p>Sobre qual cidade você gostaria de saber?</p>';
+            }
+            
+            addMessage(response);
+        }
+
+        // Gerar resposta para cidades
+        function generateCityResponse(cityKey) {
+            const city = cityData[cityKey];
+            return `
+                <h3>${city.name}</h3>
+                <p>${city.description}</p>
+                
+                <h3>Principais Atrações:</h3>
+                <ul>
+                    ${city.attractions.map(attr => `<li>${attr}</li>`).join('')}
+                </ul>
+                
+                <h3>Restaurantes Recomendados:</h3>
+                <ul>
+                    ${city.restaurants.map(rest => `<li>${rest}</li>`).join('')}
+                </ul>
+                
+                <h3>Eventos Importantes:</h3>
+                <ul>
+                    ${city.events.map(event => `<li>${event}</li>`).join('')}
+                </ul>
+                
+                <h3>Onde se Hospedar:</h3>
+                <ul>
+                    ${city.hotels.map(hotel => `<li>${hotel}</li>`).join('')}
+                </ul>
+                
+                <p><strong>Dica:</strong> ${city.tips}</p>
+                
+                <p>O que mais você gostaria de saber sobre ${city.name}?</p>
+            `;
+        }
+
+        // Gerar resposta para restaurantes
+        function generateRestaurantResponse(message) {
+            let response = '<h3>Restaurantes na Região</h3>';
+            
+            if (message.includes('boituva')) {
+                response += '<p>Em <strong>Boituva</strong>, recomendo:</p><ul>';
+                cityData.boituva.restaurants.forEach(rest => {
+                    response += `<li>${rest}</li>`;
+                });
+                response += '</ul>';
+            } else if (message.includes('tatuí') || message.includes('tatui')) {
+                response += '<p>Em <strong>Tatuí</strong>, recomendo:</p><ul>';
+                cityData.tatuí.restaurants.forEach(rest => {
+                    response += `<li>${rest}</li>`;
+                });
+                response += '</ul>';
+            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
+                response += '<p>Em <strong>Cesário Lange</strong>, recomendo:</p><ul>';
+                cityData['cesário lange'].restaurants.forEach(rest => {
+                    response += `<li>${rest}</li>`;
+                });
+                response += '</ul>';
+            } else {
+                response += `
+                    <p>Tenho informações sobre restaurantes em várias cidades:</p>
+                    <ul>
+                        <li><strong>Boituva</strong>: ${cityData.boituva.restaurants.slice(0, 2).join(', ')}</li>
+                        <li><strong>Tatuí</strong>: ${cityData.tatuí.restaurants.slice(0, 2).join(', ')}</li>
+                        <li><strong>Cesário Lange</strong>: ${cityData['cesário lange'].restaurants.slice(0, 2).join(', ')}</li>
+                    </ul>
+                    <p>De qual cidade você gostaria de ver mais opções?</p>
+                `;
+            }
+            
+            return response;
+        }
+
+        // Gerar resposta para hotéis
+        function generateHotelResponse(message) {
+            let response = '<h3>Opções de Hospedagem</h3>';
+            
+            if (message.includes('boituva')) {
+                response += '<p>Em <strong>Boituva</strong>, recomendo:</p><ul>';
+                cityData.boituva.hotels.forEach(hotel => {
+                    response += `<li>${hotel}</li>`;
+                });
+                response += '</ul>';
+            } else if (message.includes('tatuí') || message.includes('tatui')) {
+                response += '<p>Em <strong>Tatuí</strong>, recomendo:</p><ul>';
+                cityData.tatuí.hotels.forEach(hotel => {
+                    response += `<li>${hotel}</li>`;
+                });
+                response += '</ul>';
+            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
+                response += '<p>Em <strong>Cesário Lange</strong>, recomendo:</p><ul>';
+                cityData['cesário lange'].hotels.forEach(hotel => {
+                    response += `<li>${hotel}</li>`;
+                });
+                response += '</ul>';
+            } else {
+                response += `
+                    <p>Tenho informações sobre hospedagem em várias cidades:</p>
+                    <ul>
+                        <li><strong>Boituva</strong>: ${cityData.boituva.hotels.slice(0, 2).join(', ')}</li>
+                        <li><strong>Tatuí</strong>: ${cityData.tatuí.hotels.slice(0, 2).join(', ')}</li>
+                        <li><strong>Cesário Lange</strong>: ${cityData['cesário lange'].hotels.slice(0, 2).join(', ')}</li>
+                    </ul>
+                    <p>De qual cidade você gostaria de ver mais opções?</p>
+                `;
+            }
+            
+            return response;
+        }
+
+        // Gerar resposta para eventos
+        function generateEventResponse(message) {
+            let response = '<h3>Eventos na Região</h3>';
+            
+            if (message.includes('boituva')) {
+                response += '<p>Em <strong>Boituva</strong>, os principais eventos são:</p><ul>';
+                cityData.boituva.events.forEach(event => {
+                    response += `<li>${event}</li>`;
+                });
+                response += '</ul>';
+            } else if (message.includes('tatuí') || message.includes('tatui')) {
+                response += '<p>Em <strong>Tatuí</strong>, os principais eventos são:</p><ul>';
+                cityData.tatuí.events.forEach(event => {
+                    response += `<li>${event}</li>`;
+                });
+                response += '</ul>';
+            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
+                response += '<p>Em <strong>Cesário Lange</strong>, os principais eventos são:</p><ul>';
+                cityData['cesário lange'].events.forEach(event => {
+                    response += `<li>${event}</li>`;
+                });
+                response += '</ul>';
+            } else {
+                response += `
+                    <p>Tenho informações sobre eventos em várias cidades:</p>
+                    <ul>
+                        <li><strong>Boituva</strong>: ${cityData.boituva.events.slice(0, 2).join(', ')}</li>
+                        <li><strong>Tatuí</strong>: ${cityData.tatuí.events.slice(0, 2).join(', ')}</li>
+                        <li><strong>Cesário Lange</strong>: ${cityData['cesário lange'].events.slice(0, 2).join(', ')}</li>
+                    </ul>
+                    <p>De qual cidade você gostaria de ver mais eventos?</p>
+                `;
+            }
+            
+            return response;
+        }
+
+        // Event listeners
+        sendMessageBtn.addEventListener('click', processMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                processMessage();
+            }
+        });
+
+        // Sugestões de perguntas
+        suggestionChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                userInput.value = chip.getAttribute('data-query');
+                processMessage();
+            });
+        });
+
+        // Mensagem inicial após um breve delay
+        setTimeout(() => {
+            addMessage('<p>Estou aqui para ajudar você a explorar as maravilhas do interior de Sorocaba! 😊</p><p>Pergunte sobre pontos turísticos, restaurantes, eventos ou hospedagem em Boituva, Tatuí, Cesário Lange ou outras cidades da região.</p>');
+        }, 1000);
+    </script>
+</body>
+</html>
