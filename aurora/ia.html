@@ -6,261 +6,8 @@
     <title>IA Turismo - Interior de Sorocaba</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6a0dad;
-            --primary-light: #8a2be2;
-            --primary-dark: #4b0082;
-            --secondary: #ffffff;
-            --accent: #000000;
-            --text: #333333;
-            --light-bg: #f8f5ff;
-            --chat-user: #e6e0ff;
-            --chat-ai: #f0edf7;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: var(--secondary);
-            padding: 1rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-        }
-        
-        .tagline {
-            text-align: center;
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-        }
-        
-        /* AI Assistant Section */
-        .ai-assistant {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            margin-bottom: 2rem;
-        }
-        
-        .chat-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
-        }
-        
-        .chat-avatar {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .chat-header-text h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.2rem;
-        }
-        
-        .chat-header-text p {
-            opacity: 0.8;
-            font-size: 1rem;
-        }
-        
-        .chat-messages {
-            flex: 1;
-            height: 400px;
-            overflow-y: auto;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .message {
-            padding: 1rem 1.5rem;
-            border-radius: 18px;
-            max-width: 85%;
-            animation: fadeIn 0.5s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            line-height: 1.5;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .ai-message {
-            background: var(--chat-ai);
-            border-top-left-radius: 5px;
-            align-self: flex-start;
-            color: var(--text);
-        }
-        
-        .user-message {
-            background: var(--chat-user);
-            border-top-right-radius: 5px;
-            margin-left: auto;
-            color: var(--text);
-        }
-        
-        .message-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .message-content ul, .message-content ol {
-            margin-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .message-content li {
-            margin-bottom: 0.3rem;
-        }
-        
-        .chat-input-container {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .chat-input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--secondary);
-            font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .chat-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .send-button {
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 30px;
-            background: var(--secondary);
-            color: var(--primary);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .send-button:hover {
-            background: #ffcc00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .suggestions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        
-        .suggestion-chip {
-            padding: 0.6rem 1.2rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--secondary);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .suggestion-chip:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            color: var(--secondary);
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .chat-messages {
-                height: 50vh;
-            }
-            
-            .message {
-                max-width: 90%;
-            }
-            
-            .chat-input-container {
-                flex-direction: column;
-            }
-            
-            .send-button {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/ia.css">
+   
 </head>
 <body>
     <div class="container">
@@ -268,7 +15,7 @@
         <header>
             <div class="logo">
                 <i class="fas fa-robot"></i>
-                <span>IA Turismo Interior SP</span>
+                <span>AuroraAssist</span>
             </div>
         </header>
         
@@ -281,7 +28,7 @@
                     <i class="fas fa-robot"></i>
                 </div>
                 <div class="chat-header-text">
-                    <h2>TurismoIA</h2>
+                    <h2>AuroraAssist</h2>
                     <p>Especialista em turismo regional</p>
                 </div>
             </div>
@@ -292,9 +39,10 @@
                         <h3>Olá! Sou sua assistente de viagens inteligente</h3>
                         <p>Posso ajudar você a descobrir os melhores destinos, restaurantes e experiências na região de Sorocaba, incluindo:</p>
                         <ul>
+                            <li><strong>Sorocaba</strong> - Cidade principal da região</li>
                             <li><strong>Boituva</strong> - Capital do Balonismo</li>
                             <li><strong>Tatuí</strong> - Capital da Música</li>
-                            <li><strong>Cesário Lange</strong> - Ecoturismo e aventura</li>
+                            <li><strong>Itu</strong> - Terra dos exageros</li>
                             <li><strong>Outras cidades</strong> da região</li>
                         </ul>
                         <p>Sobre qual cidade você gostaria de informações?</p>
@@ -303,11 +51,11 @@
             </div>
             
             <div class="suggestions">
+                <div class="suggestion-chip" data-query="Sorocaba">Sorocaba</div>
                 <div class="suggestion-chip" data-query="Boituva">Boituva</div>
                 <div class="suggestion-chip" data-query="Tatuí">Tatuí</div>
-                <div class="suggestion-chip" data-query="Cesário Lange">Cesário Lange</div>
-                <div class="suggestion-chip" data-query="Restaurantes">Restaurantes</div>
-                <div class="suggestion-chip" data-query="Eventos">Eventos</div>
+                <div class="suggestion-chip" data-query="Itu">Itu</div>
+                <div class="suggestion-chip" data-query="Mais cidades">Mais cidades</div>
             </div>
             
             <div class="chat-input-container">
@@ -325,6 +73,39 @@
     <script>
         // Database de informações detalhadas
         const cityData = {
+            'sorocaba': {
+                name: 'Sorocaba',
+                description: 'Conhecida como a "Manchester Paulista", Sorocaba é a principal cidade da região e um importante polo industrial, comercial e tecnológico do interior de São Paulo.',
+                attractions: [
+                    'Parque Natural Chico Mendes - área de preservação com trilhas e lagos',
+                    'Jardim Botânico Irmãos Villas-Bôas - diversidade de espécies vegetais',
+                    'Museu da Estrada de Ferro Sorocabana - história ferroviária da região',
+                    'Catedral Metropolitana de Sorocaba - arquitetura imponente no centro',
+                    'Parque da Biquinha - área verde tradicional com playground e quiosques',
+                    'Palácio dos Tropeiros - sede da prefeitura com arquitetura moderna',
+                    'Museu de Arte Contemporânea de Sorocaba (MACS) - exposições artísticas'
+                ],
+                restaurants: [
+                    'Restaurante Villetto - culinária italiana sofisticada',
+                    'Villa Massa Restaurante - ambiente elegante e pratos especiais',
+                    'Rancho da Costela - famoso por suas carnes e rodízio',
+                    'Restaurante Sinhá - comida caseira e ambiente familiar',
+                    'Pizzaria Don Fabrizio - pizzas artesanais e massas frescas'
+                ],
+                events: [
+                    'Festival de Inverno de Sorocaba (Julho) - shows e atividades culturais',
+                    'Feira Nacional de Artesanato (Maio) - artesanato de todo o Brasil',
+                    'Aniversário da Cidade (15 de Agosto) - eventos cívicos e shows',
+                    'Festa do Divino Espírito Santo (Maio/Junho) - tradição religiosa centenária'
+                ],
+                hotels: [
+                    'Hotel Ibis Sorocaba - rede internacional com ótima localização',
+                    'Hotel Itavema Urban Comfort - conforto e conveniência',
+                    'Gran Hotel Sorocaba - tradição e sofisticação no centro',
+                    'Hotel São Rafael - opção econômica e aconchegante'
+                ],
+                tips: 'Sorocaba possui um ótimo sistema de transporte público, facilitando o deslocamento entre as atrações. A cidade também tem um clima agradável durante grande parte do ano, sendo a primavera e o outono as melhores épocas para visita.'
+            },
             'boituva': {
                 name: 'Boituva',
                 description: 'Conhecida como a Capital do Balonismo, Boituva é um dos principais destinos de ecoturismo e esportes de aventura do interior paulista.',
@@ -358,7 +139,7 @@
             },
             'tatuí': {
                 name: 'Tatuí',
-                description: 'Famosa como a Capital da Música, Tatuí possui um dos mais importantes conservatórios do Brasil e richa história cultural.',
+                description: 'Famosa como a Capital da Música, Tatuí possui um dos mais importantes conservatórios do Brasil e rica história cultural.',
                 attractions: [
                     'Conservatório Dramático e Musical Dr. Carlos de Campos - um dos mais tradicionais do país',
                     'Museu Histórico Paulo Setúbal - acervo sobre a história local e o escritor tatuiano',
@@ -387,38 +168,241 @@
                 ],
                 tips: 'Para os amantes de música, a programação do Conservatório de Tatuí oferece concertos e apresentações durante todo o ano, muitas vezes gratuitas.'
             },
-            'cesário lange': {
-                name: 'Cesário Lange',
-                description: 'Cesário Lange é conhecida pelo famoso Sítio do Carroção, um dos melhores destinos de ecoturismo e turismo educativo do Brasil.',
+            'itu': {
+                name: 'Itu',
+                description: 'Famosa como a "cidade dos exageros", Itu atrai turistas com suas atrações peculiares, arquitetura histórica e comércio diversificado.',
                 attractions: [
-                    'Sítio do Carroção - complexo turístico com atividades educativas e de aventura',
-                    'Parque Aquático - com tobogãs, piscinas e atrações aquáticas',
-                    'Igreja Matriz de São Roque - construção histórica no centro da cidade',
-                    'Represa do Rio Capivari - local para pesca e contemplação da natureza',
-                    'Museu Municipal - acervo histórico e cultural da cidade'
+                    'Praça dos Exageros - com objetos gigantes que tornaram a cidade famosa',
+                    'Museu da Energia - história do abastecimento energético na região',
+                    'Igreja Matriz Nossa Senhora da Candelária - construção do século XVIII',
+                    'Fábrica São Pedro - antiga fábrica transformada em centro cultural',
+                    'Parque do Varvito - monumento geológico único na América Latina'
                 ],
                 restaurants: [
-                    'Restaurante do Sítio do Carroção - comida caseira em ambiente rústico',
-                    'Restaurante e Pizzaria Ki Delícia - variedade de pratos e pizzas',
-                    'Lanchonete e Restaurante Central - opções rápidas e saborosas',
-                    'Churrascaria e Restaurante Boi na Brasa - carnes especiais e buffet',
-                    'Bar e Restaurante do Paulinho - petiscos e pratos regionais'
+                    'Restaurante e Pizzaria do Alemão - culinária alemã e brasileira',
+                    'Bolinha Restaurante - self-service com variedade de pratos',
+                    'Restaurante e Churrascaria Tempero de Minas - comida mineira autêntica',
+                    'Pizzaria e Trattoria Bella Itália - massas e pizzas artesanais',
+                    'Lanchonete e Restaurante Itubaina - tradição desde 1963'
                 ],
                 events: [
-                    'Festa de São Roque (Agosto) - festa do padroeiro com barraquinhas',
-                    'Aniversário da Cidade (20 de Novembro) - eventos cívicos e culturais',
-                    'Festival de Inverno (Julho) - comidas típicas e apresentações culturais',
-                    'Feira de Artesanato (todo domingo) - produtos artesanais locais'
+                    'Festa do Divino Pai Eterno (Junho) - celebração religiosa tradicional',
+                    'Aniversário da Cidade (2 de Fevereiro) - eventos cívicos e culturais',
+                    'Feira de Artesanato (finais de semana) - produtos artesanais locais',
+                    'Festival de Inverno (Julho) - comidas típicas e apresentações culturais'
                 ],
                 hotels: [
-                    'Sítio do Carroção - hospedagem completa com todas as atividades inclusas',
-                    'Pousada Recanto das Flores - ambiente familiar e acolhedor',
-                    'Hotel Fazenda São Francisco - experiência rural com animais',
-                    'Pousada Estância das Palmeiras - tranquilidade e contato com a natureza'
+                    'Hotel San Gennaro - conforto e ótima localização',
+                    'Pousada dos Exageros - tema divertido e ambiente familiar',
+                    'Hotel Itu Prime - moderno e bem equipado',
+                    'Pousada Recanto das Águas - tranquilidade e contato com a natureza'
                 ],
-                tips: 'Para visitar o Sítio do Carroção, é essencial fazer reserva com antecedência, especialmente em feriados e férias escolares.'
+                tips: 'Não deixe de visitar as lojas de doces caseiros e artesanato local, especialmente as que vendem produtos em tamanhos exagerados - a marca registrada de Itu!'
+            },
+            'votorantim': {
+                name: 'Votorantim',
+                description: 'Cidade integrante da Região Metropolitana de Sorocaba, Votorantim possui belas paisagens naturais e um importante parque industrial.',
+                attractions: [
+                    'Parque Natural Municipal Corredores de Biodiversidade - trilhas e observação de fauna',
+                    'Represa de Itupararanga - bela paisagem e atividades aquáticas',
+                    'Igreja Matriz de Sant\'Ana - construção histórica no centro da cidade',
+                    'Museu Municipal de Votorantim - acervo histórico e cultural',
+                    'Estádio Municipal Domênico Paolo Metidieri - arena esportiva moderna'
+                ],
+                restaurants: [
+                    'Restaurante e Churrascaria Recanto do João - carnes especiais e ambiente agradável',
+                    'Pizzaria e Esfiharia Alameda - massas e esfihas artesanais',
+                    'Restaurante Sabor Caseiro - comida mineira autêntica',
+                    'Lanchonete e Restaurante Dois Irmãos - tradição local',
+                    'Restaurante e Pizzaria Bella Vista - vista panorâmica e pratos variados'
+                ],
+                events: [
+                    'Festa de Sant\'Ana (Julho) - festa da padroeira com quermesse',
+                    'Aniversário da Cidade (10 de Abril) - eventos cívicos e shows',
+                    'Festival de Inverno (Julho) - comidas típicas e apresentações culturais',
+                    'Feira de Artesanato (finais de semana) - produtos artesanais locais'
+                ],
+                hotels: [
+                    'Hotel Ibis Votorantim - rede internacional com conforto',
+                    'Pousada Recanto das Águas - ambiente tranquilo e familiar',
+                    'Hotel Votorantim Prime - moderno e bem localizado',
+                    'Pousada Estância São João - experiência rural próxima à cidade'
+                ],
+                tips: 'Votorantim fica muito próxima a Sorocaba, permitindo fácil acesso às atrações da cidade principal da região enquanto oferece opções mais tranquilas de hospedagem.'
             }
         };
+
+        // Adicionando dados básicos para as demais cidades
+        const additionalCities = {
+            'porto feliz': {
+                name: 'Porto Feliz',
+                description: 'Conhecida como "Terra das Monções", Porto Feliz tem importante papel na história bandeirante do Brasil e atrai visitantes com suas belezas naturais.',
+                attractions: [
+                    'Parque das Monções - área verde às margens do Rio Tietê',
+                    'Museu das Monções - história das expedições fluviais',
+                    'Igreja Matriz Nossa Senhora da Mãe dos Homens - construção histórica',
+                    'Cachoeira do Rosário - queda d\'água e área de lazer',
+                    'Praça da Matriz - centro histórico da cidade'
+                ]
+            },
+            'iperó': {
+                name: 'Iperó',
+                description: 'Cidade que abriga a Floresta Nacional de Ipanema, importante unidade de conservação ambiental com rica biodiversidade.',
+                attractions: [
+                    'Floresta Nacional de Ipanema - trilhas e observação da natureza',
+                    'Ruínas da Real Fábrica de Ferro São João do Ipanema - patrimônio histórico',
+                    'Represa de Ipanema - paisagem para atividades ao ar livre',
+                    'Igreja Matriz de São João Batista - construção histórica',
+                    'Museu da Real Fábrica de Ferro - história da siderurgia brasileira'
+                ]
+            },
+            'piedade': {
+                name: 'Piedade',
+                description: 'Conhecida como "Princesinha da Serra", Piedade atrai visitantes com seu clima ameno, belas paisagens e tradição religiosa.',
+                attractions: [
+                    'Santuário de Nossa Senhora da Piedade - importante centro de peregrinação',
+                    'Cachoeira do Pinheiro - queda d\'água e área de lazer',
+                    'Mirante da Santa - vista panorâmica da região',
+                    'Parque Municipal - área verde para recreação',
+                    'Museu Municipal - acervo histórico e cultural'
+                ]
+            },
+            'são roque': {
+                name: 'São Roque',
+                description: 'Famosa por suas vinícolas e clima ameno, São Roque é um destino popular para enoturismo e gastronomia.',
+                attractions: [
+                    'Vinícolas diversas - tours e degustações de vinhos',
+                    'Cachoeira do Bacaetava - queda d\'água e área de lazer',
+                    'Igreja Matriz de São Roque - construção histórica',
+                    'Mercado Municipal - produtos locais e artesanato',
+                    'Parque da Pedra - área de recreação e paisagem natural'
+                ]
+            },
+            'araçariguama': {
+                name: 'Araçariguama',
+                description: 'Cidade com forte herança bandeirante e belas paisagens naturais, ideal para ecoturismo e atividades ao ar livre.',
+                attractions: [
+                    'Cachoeira do Bento - queda d\'água e área de lazer',
+                    'Igreja Matriz de Nossa Senhora da Conceição - construção histórica',
+                    'Trilhas ecológicas - contato com a natureza',
+                    'Sítios históricos - remanescentes do período bandeirante',
+                    'Mirantes naturais - vistas panorâmicas da região'
+                ]
+            },
+            'mairinque': {
+                name: 'Mairinque',
+                description: 'Cidade estratégica na malha ferroviária paulista, Mairinque preserva importantes marcos históricos e oferece opções de ecoturismo.',
+                attractions: [
+                    'Estação Ferroviária - patrimônio histórico restaurado',
+                    'Represa de Itupararanga - paisagem para atividades aquáticas',
+                    'Igreja Matriz de São José - construção histórica',
+                    'Parque Natural Municipal - trilhas e observação da natureza',
+                    'Museu Ferroviário - história do desenvolvimento regional'
+                ]
+            },
+            'alambari': {
+                name: 'Alambari',
+                description: 'Pequena cidade com atmosfera tranquila e belas paisagens rurais, ideal para quem busca sossego e contato com a natureza.',
+                attractions: [
+                    'Igreja Matriz de Santo Antônio - construção histórica',
+                    'Cachoeiras locais - quedas d\'água e áreas de lazer',
+                    'Trilhas rurais - passeios pela zona rural',
+                    'Praça central - ponto de encontro da comunidade',
+                    'Sítios e fazendas - experiências de turismo rural'
+                ]
+            },
+            'tapiraí': {
+                name: 'Tapiraí',
+                description: 'Cidade cercada por belas paisagens naturais, Tapiraí é um destino ideal para ecoturismo e atividades de aventura.',
+                attractions: [
+                    'Cachoeiras diversas - várias quedas d\'água na região',
+                    'Trilhas ecológicas - caminhadas em meio à natureza',
+                    'Rio Paranapanema - atividades aquáticas e pesca',
+                    'Igreja Matriz - construção histórica no centro',
+                    'Mirantes naturais - vistas panorâmicas da região'
+                ]
+            },
+            'rafard': {
+                name: 'Rafard',
+                description: 'Pequena cidade com forte tradição na agroindústria canavieira, Rafard oferece atmosfera tranquila e paisagens rurais.',
+                attractions: [
+                    'Igreja Matriz de São Rafael - construção histórica',
+                    'Usina de Açúcar e Álcool - patrimônio industrial regional',
+                    'Rio Capivari - paisagem para atividades ao ar livre',
+                    'Praça central - ponto de encontro da comunidade',
+                    'Sítios rurais - experiências de turismo no campo'
+                ]
+            },
+            'laranjal paulista': {
+                name: 'Laranjal Paulista',
+                description: 'Cidade situada às margens do Rio Paranapanema, Laranjal Paulista oferece belas paisagens e opções de turismo rural.',
+                attractions: [
+                    'Rio Paranapanema - pesca e atividades aquáticas',
+                    'Igreja Matriz de São Carlos Borromeu - construção histórica',
+                    'Represa de Xavantes - paisagem para atividades ao ar livre',
+                    'Museu Municipal - acervo histórico e cultural',
+                    'Fazendas locais - experiências de turismo rural'
+                ]
+            },
+            'angatuba': {
+                name: 'Angatuba',
+                description: 'Cidade com importante produção agropecuária, Angatuba possui belas paisagens rurais e opções de ecoturismo.',
+                attractions: [
+                    'Rio Itapetininga - pesca e atividades ao ar livre',
+                    'Igreja Matriz de São João Batista - construção histórica',
+                    'Represas locais - paisagens para recreação',
+                    'Fazendas de gado - experiências de turismo rural',
+                    'Trilhas ecológicas - caminhadas em meio à natureza'
+                ]
+            },
+            'conchas': {
+                name: 'Conchas',
+                description: 'Cidade conhecida por suas praias de água doce às margens do Rio Paranapanema, Conchas atrai veranistas em busca de recreação aquática.',
+                attractions: [
+                    'Praias de água doce - recreação no Rio Paranapanema',
+                    'Igreja Matriz de São Sebastião - construção histórica',
+                    'Parque Aquático - diversão para toda a família',
+                    'Píer de pesca - atividade esportiva no rio',
+                    'Museu Municipal - acervo histórico e cultural'
+                ]
+            },
+            'cajuru': {
+                name: 'Cajuru',
+                description: 'Cidade com forte tradição na agropecuária, Cajuru oferece paisagens rurais e atmosfera tranquila para seus visitantes.',
+                attractions: [
+                    'Igreja Matriz de Sant\'Ana - construção histórica',
+                    'Rio Pardo - pesca e atividades ao ar livre',
+                    'Fazendas locais - experiências de turismo rural',
+                    'Praça central - ponto de encontro da comunidade',
+                    'Trilhas rurais - passeios pela zona rural'
+                ]
+            },
+            'sarapuí': {
+                name: 'Sarapuí',
+                description: 'Pequena cidade com atmosfera acolhedora, Sarapuí é conhecida por sua produção de tomate e paisagens rurais.',
+                attractions: [
+                    'Igreja Matriz de São João Batista - construção histórica',
+                    'Rio Sarapuí - paisagem para atividades ao ar livre',
+                    'Fazendas de tomate - aprendizado sobre agricultura',
+                    'Praça central - ponto de encontro da comunidade',
+                    'Trilhas locais - caminhadas pela zona rural'
+                ]
+            },
+            'santos dumont': {
+                name: 'Santos Dumont',
+                description: 'Distrito de Piedade, esta localidade homenageia o pai da aviação e oferece atmosfera tranquila e paisagens serranas.',
+                attractions: [
+                    'Monumento a Santos Dumont - homenagem ao pai da aviação',
+                    'Paisagens serranas - belas vistas da região',
+                    'Igreja local - construção histórica',
+                    'Trilhas ecológicas - caminhadas em meio à natureza',
+                    'Mirantes naturais - vistas panorâmicas'
+                ]
+            }
+        };
+
+        // Combinar os dados das cidades
+        Object.assign(cityData, additionalCities);
 
         // Elementos do DOM
         const chatMessages = document.getElementById('chatMessages');
@@ -464,22 +448,31 @@
         function generateResponse(message) {
             let response = '';
             
-            if (message.includes('boituva')) {
-                response = generateCityResponse('boituva');
-            } else if (message.includes('tatuí') || message.includes('tatui')) {
-                response = generateCityResponse('tatuí');
-            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
-                response = generateCityResponse('cesário lange');
+            // Verificar se a mensagem contém nome de cidade
+            const cityKeys = Object.keys(cityData);
+            let matchedCity = null;
+            
+            for (const key of cityKeys) {
+                if (message.includes(key)) {
+                    matchedCity = key;
+                    break;
+                }
+            }
+            
+            if (matchedCity) {
+                response = generateCityResponse(matchedCity);
             } else if (message.includes('restaurant') || message.includes('comida') || message.includes('onde comer')) {
                 response = generateRestaurantResponse(message);
             } else if (message.includes('hotel') || message.includes('hospedagem') || message.includes('onde ficar')) {
                 response = generateHotelResponse(message);
-            } else if (message.includes('evento') || message.includes('o que fazer')) {
+            } else if (message.includes('evento') || message.includes('o que fazer') || message.includes('atrac')) {
                 response = generateEventResponse(message);
-            } else if (message.includes('ajuda') || message.includes('help')) {
+            } else if (message.includes('mais cidades') || message.includes('todas as cidades')) {
+                response = generateAllCitiesResponse();
+            } else if (message.includes('ajuda') || message.includes('help') || message.includes('sugest')) {
                 response = '<h3>Como posso ajudar?</h3><p>Posso fornecer informações sobre:</p><ul><li>Pontos turísticos</li><li>Restaurantes</li><li>Eventos</li><li>Hospedagem</li><li>Dicas de viagem</li></ul><p>Para quais cidades da região você gostaria de informações?</p>';
             } else {
-                response = '<h3>Não entendi completamente</h3><p>Posso ajudar com informações sobre Boituva, Tatuí, Cesário Lange e outras cidades da região de Sorocaba.</p><p>Você pode me perguntar sobre:</p><ul><li>Pontos turísticos</li><li>Restaurantes</li><li>Eventos e festas</li><li>Opções de hospedagem</li><li>Dicas de viagem</li></ul><p>Sobre qual cidade você gostaria de saber?</p>';
+                response = '<h3>Não entendi completamente</h3><p>Posso ajudar com informações sobre cidades da região de Sorocaba, incluindo Sorocaba, Boituva, Tatuí, Itu, Votorantim e muitas outras.</p><p>Você pode me perguntar sobre:</p><ul><li>Pontos turísticos</li><li>Restaurantes</li><li>Eventos e festas</li><li>Opções de hospedagem</li><li>Dicas de viagem</li></ul><p>Sobre qual cidade você gostaria de saber?</p>';
             }
             
             addMessage(response);
@@ -488,65 +481,85 @@
         // Gerar resposta para cidades
         function generateCityResponse(cityKey) {
             const city = cityData[cityKey];
-            return `
+            let response = `
                 <h3>${city.name}</h3>
                 <p>${city.description}</p>
-                
-                <h3>Principais Atrações:</h3>
-                <ul>
-                    ${city.attractions.map(attr => `<li>${attr}</li>`).join('')}
-                </ul>
-                
-                <h3>Restaurantes Recomendados:</h3>
-                <ul>
-                    ${city.restaurants.map(rest => `<li>${rest}</li>`).join('')}
-                </ul>
-                
-                <h3>Eventos Importantes:</h3>
-                <ul>
-                    ${city.events.map(event => `<li>${event}</li>`).join('')}
-                </ul>
-                
-                <h3>Onde se Hospedar:</h3>
-                <ul>
-                    ${city.hotels.map(hotel => `<li>${hotel}</li>`).join('')}
-                </ul>
-                
-                <p><strong>Dica:</strong> ${city.tips}</p>
-                
-                <p>O que mais você gostaria de saber sobre ${city.name}?</p>
             `;
+            
+            if (city.attractions) {
+                response += `
+                    <h3>Principais Atrações:</h3>
+                    <ul>
+                        ${city.attractions.map(attr => `<li>${attr}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            if (city.restaurants) {
+                response += `
+                    <h3>Restaurantes Recomendados:</h3>
+                    <ul>
+                        ${city.restaurants.map(rest => `<li>${rest}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            if (city.events) {
+                response += `
+                    <h3>Eventos Importantes:</h3>
+                    <ul>
+                        ${city.events.map(event => `<li>${event}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            if (city.hotels) {
+                response += `
+                    <h3>Onde se Hospedar:</h3>
+                    <ul>
+                        ${city.hotels.map(hotel => `<li>${hotel}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            if (city.tips) {
+                response += `<p><strong>Dica:</strong> ${city.tips}</p>`;
+            }
+            
+            response += `<p>O que mais você gostaria de saber sobre ${city.name}?</p>`;
+            
+            return response;
         }
 
         // Gerar resposta para restaurantes
         function generateRestaurantResponse(message) {
             let response = '<h3>Restaurantes na Região</h3>';
             
-            if (message.includes('boituva')) {
-                response += '<p>Em <strong>Boituva</strong>, recomendo:</p><ul>';
-                cityData.boituva.restaurants.forEach(rest => {
-                    response += `<li>${rest}</li>`;
-                });
-                response += '</ul>';
-            } else if (message.includes('tatuí') || message.includes('tatui')) {
-                response += '<p>Em <strong>Tatuí</strong>, recomendo:</p><ul>';
-                cityData.tatuí.restaurants.forEach(rest => {
-                    response += `<li>${rest}</li>`;
-                });
-                response += '</ul>';
-            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
-                response += '<p>Em <strong>Cesário Lange</strong>, recomendo:</p><ul>';
-                cityData['cesário lange'].restaurants.forEach(rest => {
+            // Verificar se a mensagem contém nome de cidade
+            const cityKeys = Object.keys(cityData);
+            let matchedCity = null;
+            
+            for (const key of cityKeys) {
+                if (message.includes(key)) {
+                    matchedCity = key;
+                    break;
+                }
+            }
+            
+            if (matchedCity && cityData[matchedCity].restaurants) {
+                response += `<p>Em <strong>${cityData[matchedCity].name}</strong>, recomendo:</p><ul>`;
+                cityData[matchedCity].restaurants.forEach(rest => {
                     response += `<li>${rest}</li>`;
                 });
                 response += '</ul>';
             } else {
                 response += `
-                    <p>Tenho informações sobre restaurantes em várias cidades:</p>
+                    <p>Tenho informações sobre restaurantes em várias cidades. As principais são:</p>
                     <ul>
+                        <li><strong>Sorocaba</strong>: ${cityData.sorocaba.restaurants.slice(0, 2).join(', ')}</li>
                         <li><strong>Boituva</strong>: ${cityData.boituva.restaurants.slice(0, 2).join(', ')}</li>
                         <li><strong>Tatuí</strong>: ${cityData.tatuí.restaurants.slice(0, 2).join(', ')}</li>
-                        <li><strong>Cesário Lange</strong>: ${cityData['cesário lange'].restaurants.slice(0, 2).join(', ')}</li>
+                        <li><strong>Itu</strong>: ${cityData.itu.restaurants.slice(0, 2).join(', ')}</li>
                     </ul>
                     <p>De qual cidade você gostaria de ver mais opções?</p>
                 `;
@@ -559,31 +572,31 @@
         function generateHotelResponse(message) {
             let response = '<h3>Opções de Hospedagem</h3>';
             
-            if (message.includes('boituva')) {
-                response += '<p>Em <strong>Boituva</strong>, recomendo:</p><ul>';
-                cityData.boituva.hotels.forEach(hotel => {
-                    response += `<li>${hotel}</li>`;
-                });
-                response += '</ul>';
-            } else if (message.includes('tatuí') || message.includes('tatui')) {
-                response += '<p>Em <strong>Tatuí</strong>, recomendo:</p><ul>';
-                cityData.tatuí.hotels.forEach(hotel => {
-                    response += `<li>${hotel}</li>`;
-                });
-                response += '</ul>';
-            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
-                response += '<p>Em <strong>Cesário Lange</strong>, recomendo:</p><ul>';
-                cityData['cesário lange'].hotels.forEach(hotel => {
+            // Verificar se a mensagem contém nome de cidade
+            const cityKeys = Object.keys(cityData);
+            let matchedCity = null;
+            
+            for (const key of cityKeys) {
+                if (message.includes(key)) {
+                    matchedCity = key;
+                    break;
+                }
+            }
+            
+            if (matchedCity && cityData[matchedCity].hotels) {
+                response += `<p>Em <strong>${cityData[matchedCity].name}</strong>, recomendo:</p><ul>`;
+                cityData[matchedCity].hotels.forEach(hotel => {
                     response += `<li>${hotel}</li>`;
                 });
                 response += '</ul>';
             } else {
                 response += `
-                    <p>Tenho informações sobre hospedagem em várias cidades:</p>
+                    <p>Tenho informações sobre hospedagem em várias cidades. As principais são:</p>
                     <ul>
+                        <li><strong>Sorocaba</strong>: ${cityData.sorocaba.hotels.slice(0, 2).join(', ')}</li>
                         <li><strong>Boituva</strong>: ${cityData.boituva.hotels.slice(0, 2).join(', ')}</li>
                         <li><strong>Tatuí</strong>: ${cityData.tatuí.hotels.slice(0, 2).join(', ')}</li>
-                        <li><strong>Cesário Lange</strong>: ${cityData['cesário lange'].hotels.slice(0, 2).join(', ')}</li>
+                        <li><strong>Itu</strong>: ${cityData.itu.hotels.slice(0, 2).join(', ')}</li>
                     </ul>
                     <p>De qual cidade você gostaria de ver mais opções?</p>
                 `;
@@ -596,35 +609,49 @@
         function generateEventResponse(message) {
             let response = '<h3>Eventos na Região</h3>';
             
-            if (message.includes('boituva')) {
-                response += '<p>Em <strong>Boituva</strong>, os principais eventos são:</p><ul>';
-                cityData.boituva.events.forEach(event => {
-                    response += `<li>${event}</li>`;
-                });
-                response += '</ul>';
-            } else if (message.includes('tatuí') || message.includes('tatui')) {
-                response += '<p>Em <strong>Tatuí</strong>, os principais eventos são:</p><ul>';
-                cityData.tatuí.events.forEach(event => {
-                    response += `<li>${event}</li>`;
-                });
-                response += '</ul>';
-            } else if (message.includes('cesário') || message.includes('cesario') || message.includes('lange')) {
-                response += '<p>Em <strong>Cesário Lange</strong>, os principais eventos são:</p><ul>';
-                cityData['cesário lange'].events.forEach(event => {
+            // Verificar se a mensagem contém nome de cidade
+            const cityKeys = Object.keys(cityData);
+            let matchedCity = null;
+            
+            for (const key of cityKeys) {
+                if (message.includes(key)) {
+                    matchedCity = key;
+                    break;
+                }
+            }
+            
+            if (matchedCity && cityData[matchedCity].events) {
+                response += `<p>Em <strong>${cityData[matchedCity].name}</strong>, os principais eventos são:</p><ul>`;
+                cityData[matchedCity].events.forEach(event => {
                     response += `<li>${event}</li>`;
                 });
                 response += '</ul>';
             } else {
                 response += `
-                    <p>Tenho informações sobre eventos em várias cidades:</p>
+                    <p>Tenho informações sobre eventos em várias cidades. Os principais são:</p>
                     <ul>
+                        <li><strong>Sorocaba</strong>: ${cityData.sorocaba.events.slice(0, 2).join(', ')}</li>
                         <li><strong>Boituva</strong>: ${cityData.boituva.events.slice(0, 2).join(', ')}</li>
                         <li><strong>Tatuí</strong>: ${cityData.tatuí.events.slice(0, 2).join(', ')}</li>
-                        <li><strong>Cesário Lange</strong>: ${cityData['cesário lange'].events.slice(0, 2).join(', ')}</li>
+                        <li><strong>Itu</strong>: ${cityData.itu.events.slice(0, 2).join(', ')}</li>
                     </ul>
                     <p>De qual cidade você gostaria de ver mais eventos?</p>
                 `;
             }
+            
+            return response;
+        }
+
+        // Gerar resposta com todas as cidades
+        function generateAllCitiesResponse() {
+            let response = '<h3>Todas as cidades da região</h3><p>Tenho informações sobre as seguintes cidades da região de Sorocaba:</p><ul>';
+            
+            const cityKeys = Object.keys(cityData);
+            cityKeys.forEach(key => {
+                response += `<li><strong>${cityData[key].name}</strong> - ${cityData[key].description.substring(0, 100)}...</li>`;
+            });
+            
+            response += '</ul><p>Sobre qual cidade você gostaria de saber mais?</p>';
             
             return response;
         }
@@ -640,14 +667,18 @@
         // Sugestões de perguntas
         suggestionChips.forEach(chip => {
             chip.addEventListener('click', () => {
-                userInput.value = chip.getAttribute('data-query');
+                if (chip.getAttribute('data-query') === 'Mais cidades') {
+                    userInput.value = 'Quais cidades você conhece?';
+                } else {
+                    userInput.value = chip.getAttribute('data-query');
+                }
                 processMessage();
             });
         });
 
         // Mensagem inicial após um breve delay
         setTimeout(() => {
-            addMessage('<p>Estou aqui para ajudar você a explorar as maravilhas do interior de Sorocaba! 😊</p><p>Pergunte sobre pontos turísticos, restaurantes, eventos ou hospedagem em Boituva, Tatuí, Cesário Lange ou outras cidades da região.</p>');
+            addMessage('<p>Estou aqui para ajudar você a explorar as maravilhas do interior de Sorocaba! 😊</p><p>Pergunte sobre pontos turísticos, restaurantes, eventos ou hospedagem em qualquer uma das cidades da região.</p>');
         }, 1000);
     </script>
 </body>
