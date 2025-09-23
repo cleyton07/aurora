@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesário Lange - Aurora Viagens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="../cidades/cidades.css/cidades.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-compass"></i>
+                    <span>Aurora Viagens</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#atracoes">Atrações</a>
+                    <a href="#hoteis">Hotéis</a>
+                    <a href="#restaurantes">Restaurantes</a>
+                    <a href="#mapa">Mapa</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-city">
+        <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Vista de Cesário Lange">
+        <div class="hero-content">
+            <h1>Cesário Lange</h1>
+            <p>Descubra a tranquilidade e o charme desta cidade do interior paulista</p>
+            <a href="#atracoes" class="btn-primary">Explorar Atrações</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-city">
+        <div class="container">
+            <h2 class="section-title">Sobre Cesário Lange</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Cesário Lange é um município brasileiro do estado de São Paulo, localizado na região de Tatuí. Com uma população de aproximadamente 18 mil habitantes, a cidade é conhecida por sua atmosfera tranquila e qualidade de vida.</p>
+                    <p>A economia do município é baseada principalmente na agricultura, com destaque para o cultivo de cana-de-açúcar, laranja e culturas diversificadas, além de um crescente setor de serviços.</p>
+                    <p>A cidade oferece aos visitantes a autêntica experiência do interior paulista, com suas tradições preservadas, festas típicas e um povo acolhedor que mantém viva a cultura regional.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3>18k</h3>
+                            <p>Habitantes</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>60</h3>
+                            <p>Anos de emancipação</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>25°C</h3>
+                            <p>Temperatura média</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="city-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atracoes" class="attractions">
+        <div class="container">
+            <h2 class="section-title">Principais Atrações Turísticas</h2>
+            <div class="attractions-grid">
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Praça da Matriz">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Praça da Matriz</h3>
+                        <p>Principal ponto de encontro da cidade, com coreto, jardins bem cuidados e área de lazer.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 24 horas</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Igreja Matriz">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Igreja Matriz São João Batista</h3>
+                        <p>Belíssimo templo religioso com arquitetura imponente e importância histórica para a região.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 7h-19h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1587335694375-8a715f6e4a0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Parque Municipal">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Parque Municipal</h3>
+                        <p>Área verde com quadras esportivas, playground, pista de caminhada e quiosques para piquenique.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 6h-22h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Represa">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Represa Municipal</h3>
+                        <p>Local ideal para pesca esportiva, caminhadas e contemplação da natureza.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 6h-18h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Museu">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Museu Histórico Municipal</h3>
+                        <p>Acervo que preserva a memória e história do desenvolvimento de Cesário Lange.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 9h-17h (seg a sex)</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fazendas">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Fazendas da Região</h3>
+                        <p>Conheça as tradicionais fazendas que contam a história agrícola da região.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> Visitas agendadas</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Variável</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hoteis" class="hotels">
+        <div class="container">
+            <h2 class="section-title">Onde se Hospedar</h2>
+            
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Cesário Lange">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Cesário Lange</h3>
+                    <p>Localizado no centro da cidade, oferece conforto e comodidade para sua estadia.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-parking"></i> Estacionamento</span>
+                        <span><i class="fas fa-utensils"></i> Café da manhã</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 150/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pousada Rural">
+                </div>
+                <div class="hotel-info">
+                    <h3>Pousada Rural Sítio São João</h3>
+                    <p>Ambiente familiar no campo, ideal para quem busca tranquilidade e contato com a natureza.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Piscina</span>
+                        <span><i class="fas fa-utensils"></i> Café colonial</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 100/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Fazenda">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Fazenda Recanto do Sol</h3>
+                    <p>Ampla área verde, atividades rurais e culinária caseira em ambiente familiar.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-horse"></i> Cavalgadas</span>
+                        <span><i class="fas fa-utensils"></i> Restaurante</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 200/noite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="restaurantes" class="restaurants">
+        <div class="container">
+            <h2 class="section-title">Onde Comer</h2>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurante Caseiro">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Restaurante Caseiro da Maria</h3>
+                    <p>Culinária caseira e regional em ambiente familiar e acolhedor.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Comida caseira</span>
+                        <span><i class="fas fa-leaf"></i> Produtos regionais</span>
+                        <span><i class="fas fa-home"></i> Ambiente familiar</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 35 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Churrascaria">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Churrascaria e Pizzaria Dois Irmãos</h3>
+                    <p>Carnes selecionadas e pizzas artesanais em ambiente rústico e aconchegante.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Churrascaria</span>
+                        <span><i class="fas fa-drumstick-bite"></i> Carnes nobres</span>
+                        <span><i class="fas fa-pizza-slice"></i> Pizzas artesanais</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 50 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lanchonete">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Lanchonete e Confeitaria Central</h3>
+                    <p>Lanches, salgados e doces caseiros, ponto de encontro tradicional da cidade.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Lanchonete</span>
+                        <span><i class="fas fa-bread-slice"></i> Salgados caseiros</span>
+                        <span><i class="fas fa-cookie"></i> Doces tradicionais</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 25 por pessoa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Aurora Viagens</h3>
+                    <p>Sua agência de turismo especializada na região de Cesário Lange e interior paulista.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <a href="../index.html">Página Inicial</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Pacotes Turísticos</a>
+                    <a href="#">Contato</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123, Cesário Lange/SP</p>
+                    <p><i class="fas fa-phone"></i> (15) 3276-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@auroraviagens.com.br</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Aurora Viagens - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar o mapa
+        function initMap() {
+            // Coordenadas de Cesário Lange
+            const cesarioLange = { lat: -23.2264, lng: -47.9542 };
+            
+            // Criar o mapa
+            const map = L.map('city-map').setView(cesarioLange, 14);
+            
+            // Adicionar camada do mapa
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Adicionar marcador
+            L.marker(cesarioLange)
+                .addTo(map)
+                .bindPopup('<b>Cesário Lange</b><br>Conheça esta charmosa cidade do interior!')
+                .openPopup();
+
+            // Adicionar marcadores para pontos turísticos
+            const pontosTuristicos = [
+                { lat: -23.2269, lng: -47.9536, nome: "Praça da Matriz" },
+                { lat: -23.2267, lng: -47.9539, nome: "Igreja Matriz São João Batista" },
+                { lat: -23.2281, lng: -47.9528, nome: "Parque Municipal" },
+                { lat: -23.2305, lng: -47.9512, nome: "Represa Municipal" },
+                { lat: -23.2258, lng: -47.9551, nome: "Museu Histórico Municipal" }
+            ];
+
+            pontosTuristicos.forEach(ponto => {
+                L.marker([ponto.lat, ponto.lng])
+                    .addTo(map)
+                    .bindPopup(`<b>${ponto.nome}</b>`);
+            });
+        }
+        
+        // Inicializar o mapa quando a página carregar
+        window.onload = initMap;
+    </script>
+</body>
+</html>
