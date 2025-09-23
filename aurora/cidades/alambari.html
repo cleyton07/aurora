@@ -1,1 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alambari - Aurora Viagens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="../cidades/cidades.css/cidades.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-compass"></i>
+                    <span>Aurora Viagens</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#atracoes">Atrações</a>
+                    <a href="#hoteis">Hotéis</a>
+                    <a href="#restaurantes">Restaurantes</a>
+                    <a href="#mapa">Mapa</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <section class="hero-city">
+        <img src="https://images.unsplash.com/photo-1580651315537-883d3a81d63d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Vista de Alambari">
+        <div class="hero-content">
+            <h1>Alambari</h1>
+            <p>Descubra o charme da cidade paulista conhecida por suas belezas naturais e tranquilidade</p>
+            <a href="#atracoes" class="btn-primary">Explorar Atrações</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-city">
+        <div class="container">
+            <h2 class="section-title">Sobre Alambari</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Alambari é um município brasileiro do estado de São Paulo, localizado na região metropolitana de Sorocaba. Com uma população de aproximadamente 6.000 habitantes, a cidade se destaca por sua tranquilidade e belas paisagens rurais.</p>
+                    <p>A cidade tem sua economia baseada na agricultura e pecuária, com destaque para o cultivo de milho, feijão e a criação de gado leiteiro. Alambari oferece uma qualidade de vida excelente para quem busca sossego e contato com a natureza.</p>
+                    <p>Com um clima ameno e paisagens bucólicas, Alambari é perfeita para quem deseja fugir da agitação das grandes cidades e desfrutar de momentos de paz em meio à natureza.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3>6k</h3>
+                            <p>Habitantes</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>134</h3>
+                            <p>Anos de história</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>22°C</h3>
+                            <p>Temperatura média</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="city-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atracoes" class="attractions">
+        <div class="container">
+            <h2 class="section-title">Principais Atrações Turísticas</h2>
+            <div class="attractions-grid">
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Igreja Matriz">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Igreja Matriz de São João Batista</h3>
+                        <p>Principal templo religioso da cidade, com arquitetura tradicional e importância histórica para a comunidade.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 8h-18h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Represa">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Represa de Alambari</h3>
+                        <p>Área de lazer perfeita para pesca, piqueniques e contemplação da natureza.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 6h-20h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1587334274527-ba54f0b5a357?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fazendas">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Fazendas Históricas</h3>
+                        <p>Conheça as tradicionais fazendas da região que contam a história do desenvolvimento rural.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> Visitas agendadas</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Variável</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trilhas">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Trilhas Ecológicas</h3>
+                        <p>Perfeitas para caminhadas e observação da flora e fauna local em meio à natureza preservada.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> Durante o dia</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Praça Central">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Praça da Matriz</h3>
+                        <p>Coracao da cidade, ideal para relaxar e observar o cotidiano tranquilo dos moradores.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 24h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cachoeiras">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Cachoeiras da Região</h3>
+                        <p>Áreas de banho naturais perfeitas para se refrescar nos dias quentes.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> Durante o dia</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hoteis" class="hotels">
+        <div class="container">
+            <h2 class="section-title">Onde se Hospedar</h2>
+            
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pousada Rural">
+                </div>
+                <div class="hotel-info">
+                    <h3>Pousada Rural Sítio São João</h3>
+                    <p>Ambiente familiar e acolhedor no coração da zona rural de Alambari. Ideal para quem busca tranquilidade e contato com a natureza.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Piscina</span>
+                        <span><i class="fas fa-utensils"></i> Café da manhã</span>
+                        <span><i class="fas fa-tree"></i> Área verde</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 180/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Fazenda">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Fazenda Recanto do Sabiá</h3>
+                    <p>Estrutura completa com atividades rurais, cavalgadas e contato com animais. Perfeito para famílias.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-horse"></i> Cavalgadas</span>
+                        <span><i class="fas fa-utensils"></i> Pensão completa</span>
+                        <span><i class="fas fa-child"></i> Área kids</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 250/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chalés">
+                </div>
+                <div class="hotel-info">
+                    <h3>Chalés da Serra</h3>
+                    <p>Chalés aconchegantes com vista para as montanhas. Ideal para casais em busca de romance e privacidade.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-fireplace"></i> Lareira</span>
+                        <span><i class="fas fa-hot-tub"></i> Hidromassagem</span>
+                        <span><i class="fas fa-mountain"></i> Vista panorâmica</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 320/noite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="restaurantes" class="restaurants">
+        <div class="container">
+            <h2 class="section-title">Onde Comer</h2>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurante Caseiro">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Restaurante Caseiro da Dona Maria</h3>
+                    <p>Comida caseira tradicional preparada com ingredientes frescos da região. Ambiente familiar e acolhedor.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Comida caseira</span>
+                        <span><i class="fas fa-carrot"></i> Ingredientes frescos</span>
+                        <span><i class="fas fa-home"></i> Ambiente familiar</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 35 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lanchonete">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Lanchonete e Pizzaria Dois Irmãos</h3>
+                    <p>Local tradicional que serve lanches, pizzas e pratos simples. Point da cidade para encontros informais.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Lanches e pizzas</span>
+                        <span><i class="fas fa-pizza-slice"></i> Forno a lenha</span>
+                        <span><i class="fas fa-users"></i> Ambiente descontraído</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 25 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Churrascaria">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Churrascaria e Bar do Zé</h3>
+                    <p>Carnes de qualidade no espeto e petiscos regionais. Ambiente rústico ideal para confraternizações.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Churrasco</span>
+                        <span><i class="fas fa-drumstick-bite"></i> Carnes selecionadas</span>
+                        <span><i class="fas fa-beer"></i> Bebidas regionais</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 50 por pessoa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Aurora Viagens</h3>
+                    <p>Sua agência de turismo especializada na região de Alambari e interior paulista.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <a href="index.html">Página Inicial</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Pacotes Turísticos</a>
+                    <a href="#">Contato</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Principal, 123, Centro, Alambari/SP</p>
+                    <p><i class="fas fa-phone"></i> (15) 3276-1234</p>
+                    <p><i class="fas fa-envelope"></i> contato@auroraviagens.com.br</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Aurora Viagens - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar o mapa
+        function initMap() {
+            // Coordenadas de Alambari
+            const alambari = { lat: -23.5503, lng: -47.8981 };
+            
+            // Criar o mapa
+            const map = L.map('city-map').setView(alambari, 13);
+            
+            // Adicionar camada do mapa
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Adicionar marcador
+            L.marker(alambari)
+                .addTo(map)
+                .bindPopup('<b>Alambari</b><br>Conheça o charme desta cidade paulista!')
+                .openPopup();
+
+            // Adicionar marcadores para pontos turísticos
+            const pontosTuristicos = [
+                { lat: -23.5510, lng: -47.8975, nome: "Igreja Matriz de São João Batista" },
+                { lat: -23.5530, lng: -47.9000, nome: "Praça da Matriz" },
+                { lat: -23.5600, lng: -47.8900, nome: "Represa de Alambari" },
+                { lat: -23.5450, lng: -47.9100, nome: "Trilhas Ecológicas" },
+                { lat: -23.5400, lng: -47.9200, nome: "Cachoeiras da Região" }
+            ];
+
+            pontosTuristicos.forEach(ponto => {
+                L.marker([ponto.lat, ponto.lng])
+                    .addTo(map)
+                    .bindPopup(`<b>${ponto.nome}</b>`);
+            });
+        }
+        
+        // Inicializar o mapa quando a página carregar
+        window.onload = initMap;
+    </script>
+</body>
+</html>
