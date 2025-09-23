@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibiúna - Aurora Viagens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="../cidades/cidades.css/cidades.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-compass"></i>
+                    <span>Aurora Viagens</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#atracoes">Atrações</a>
+                    <a href="#hoteis">Hotéis</a>
+                    <a href="#restaurantes">Restaurantes</a>
+                    <a href="#mapa">Mapa</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-city">
+        <img src="https://images.unsplash.com/photo-1587335694375-8a715f6e4a0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Vista de Ibiúna">
+        <div class="hero-content">
+            <h1>Ibiúna</h1>
+            <p>Descubra as belezas naturais da "Terra das Águas"</p>
+            <a href="#atracoes" class="btn-primary">Explorar Atrações</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-city">
+        <div class="container">
+            <h2 class="section-title">Sobre Ibiúna</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ibiúna é um município brasileiro do estado de São Paulo, localizado na região metropolitana de Sorocaba. O nome "Ibiúna" vem do tupi-guarani e significa "Terra Preta", através da junção dos termos yby ("terra") e un ("preta").</p>
+                    <p>Conhecida como "Terra das Águas", Ibiúna possui inúmeras nascentes, cachoeiras e rios, sendo um destino ideal para ecoturismo e contato com a natureza. A cidade tem aproximadamente 80 mil habitantes e mantém um clima tranquilo de interior.</p>
+                    <p>Com uma economia baseada na agricultura (especialmente hortifrutigranjeiros) e no turismo rural, Ibiúna oferece paisagens deslumbrantes da Serra do Mar e uma rica cultura caipara.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3>80k</h3>
+                            <p>Habitantes</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>162</h3>
+                            <p>Anos de história</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>19°C</h3>
+                            <p>Temperatura média</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="city-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atracoes" class="attractions">
+        <div class="container">
+            <h2 class="section-title">Principais Atrações Turísticas</h2>
+            <div class="attractions-grid">
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Parque Municipal">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Parque Municipal da Serra</h3>
+                        <p>Área de preservação com trilhas, mirantes e cachoeiras na Serra do Mar.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 6h-18h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Igreja Matriz">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Igreja Matriz Senhor Bom Jesus</h3>
+                        <p>Principal templo religioso da cidade, com arquitetura histórica do século XIX.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 7h-19h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cachoeira">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Cachoeira do Pinheiro</h3>
+                        <p>Uma das mais belas cachoeiras da região, ideal para banho e contemplação.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 8h-17h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> R$ 10,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mercado Municipal">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Mercado Municipal</h3>
+                        <p>Produtos frescos da agricultura familiar e artesanato local.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 7h-18h (seg-sáb)</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trilha Ecológica">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Trilha Ecológica do Rio Sorocabuçu</h3>
+                        <p>Caminhada por mata preservada com observação de fauna e flora local.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> Com agendamento</span>
+                            <span><i class="fas fa-money-bill-wave"></i> R$ 25,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mirante">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Mirante da Serra</h3>
+                        <p>Vista panorâmica deslumbrante de toda a região do Vale do Ribeira.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 6h-20h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hoteis" class="hotels">
+        <div class="container">
+            <h2 class="section-title">Onde se Hospedar</h2>
+            
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Ibiúna">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Ibiúna</h3>
+                    <p>Localizado no centro da cidade, oferece conforto e fácil acesso às atrações.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-parking"></i> Estacionamento</span>
+                        <span><i class="fas fa-utensils"></i> Café da manhã</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 200/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pousada das Cachoeiras">
+                </div>
+                <div class="hotel-info">
+                    <h3>Pousada das Cachoeiras</h3>
+                    <p>Ambiente rústico e aconchegante, próximo às principais cachoeiras da região.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Piscina natural</span>
+                        <span><i class="fas fa-utensils"></i> Café colonial</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 150/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Fazenda">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Fazenda Terra Preta</h3>
+                    <p>Contato total com a natureza, cavalgadas e culinária regional.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-horse"></i> Cavalgadas</span>
+                        <span><i class="fas fa-utensils"></i> Restaurante</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 280/noite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="restaurantes" class="restaurants">
+        <div class="container">
+            <h2 class="section-title">Onde Comer</h2>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurante Caipira">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Restaurante Sabor Caipira</h3>
+                    <p>Culinária caseira e regional com ingredientes frescos da agricultura local.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Comida caipira</span>
+                        <span><i class="fas fa-leaf"></i> Produtos orgânicos</span>
+                        <span><i class="fas fa-home"></i> Ambiente rústico</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 45 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Truticultura">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Truticultura Ibiúna</h3>
+                    <p>Especializado em trutas frescas preparadas de diversas formas.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-fish"></i> Trutas frescas</span>
+                        <span><i class="fas fa-water"></i> À beira do rio</span>
+                        <span><i class="fas fa-utensil-spoon"></i> Pratos regionais</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 55 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lanchonete">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Lanchonete da Praça</h3>
+                    <p>Lanches rápidos e refeições simples no centro da cidade.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-hamburger"></i> Lanches</span>
+                        <span><i class="fas fa-coffee"></i> Café expresso</span>
+                        <span><i class="fas fa-bread-slice"></i> Salgados</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 25 por pessoa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Aurora Viagens</h3>
+                    <p>Sua agência de turismo especializada na região de Ibiúna e interior paulista.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <a href="../index.html">Página Inicial</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Pacotes Turísticos</a>
+                    <a href="#">Contato</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. São João, 456, Ibiúna/SP</p>
+                    <p><i class="fas fa-phone"></i> (15) 3241-8888</p>
+                    <p><i class="fas fa-envelope"></i> contato@auroraviagens.com.br</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Aurora Viagens - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar o mapa
+        function initMap() {
+            // Coordenadas de Ibiúna
+            const ibiuna = { lat: -23.6564, lng: -47.2225 };
+            
+            // Criar o mapa
+            const map = L.map('city-map').setView(ibiuna, 12);
+            
+            // Adicionar camada do mapa
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Adicionar marcador
+            L.marker(ibiuna)
+                .addTo(map)
+                .bindPopup('<b>Ibiúna</b><br>Terra das Águas - Conheça suas belezas naturais!')
+                .openPopup();
+
+            // Adicionar marcadores para pontos turísticos
+            const pontosTuristicos = [
+                { lat: -23.6500, lng: -47.2100, nome: "Parque Municipal da Serra" },
+                { lat: -23.6560, lng: -47.2200, nome: "Igreja Matriz Senhor Bom Jesus" },
+                { lat: -23.6700, lng: -47.2000, nome: "Cachoeira do Pinheiro" },
+                { lat: -23.6550, lng: -47.2250, nome: "Mercado Municipal" },
+                { lat: -23.6450, lng: -47.2150, nome: "Mirante da Serra" }
+            ];
+
+            pontosTuristicos.forEach(ponto => {
+                L.marker([ponto.lat, ponto.lng])
+                    .addTo(map)
+                    .bindPopup(`<b>${ponto.nome}</b>`);
+            });
+        }
+        
+        // Inicializar o mapa quando a página carregar
+        window.onload = initMap;
+    </script>
+</body>
+</html>

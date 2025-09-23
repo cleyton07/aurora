@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatuí - Aurora Viagens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="../cidades/cidades.css/cidades.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-compass"></i>
+                    <span>Aurora Viagens</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#atracoes">Atrações</a>
+                    <a href="#hoteis">Hotéis</a>
+                    <a href="#restaurantes">Restaurantes</a>
+                    <a href="#mapa">Mapa</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-city">
+        <img src="https://images.unsplash.com/photo-1542605847-0d385821eaae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Vista de Tatuí">
+        <div class="hero-content">
+            <h1>Tatuí</h1>
+            <p>Conheça a "Capital da Música" e "Cidade Ternura" do interior de São Paulo</p>
+            <a href="#atracoes" class="btn-primary">Explorar Atrações</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-city">
+        <div class="container">
+            <h2 class="section-title">Sobre Tatuí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Tatuí é um município do estado de São Paulo, carinhosamente conhecida como a **"Capital da Música"** e a **"Cidade Ternura"**. O primeiro título se deve ao renomado Conservatório Dramático e Musical "Dr. Carlos de Campos", o maior da América Latina, que atrai estudantes e músicos do mundo todo. O segundo, à fama de seu povo acolhedor e hospitaleiro. O nome da cidade, em tupi-guarani, significa "Água do Rio do Tatu".</p>
+                    <p>Com cerca de 124 mil habitantes, Tatuí possui um forte apelo cultural e histórico. Sua fundação remonta ao século XIX, e a cidade preserva um centro histórico charmoso, com casarões antigos, praças arborizadas e a tradicional Praça da Matriz. Além de sua vocação musical, Tatuí é conhecida pela produção de doces, sendo anfitriã da anual Festa dos Doces, um evento que celebra a tradição culinária local.</p>
+                    <p>A cidade combina a tranquilidade do interior com uma agenda cultural efervescente, oferecendo uma experiência completa para quem a visita.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3>124k</h3>
+                            <p>Habitantes</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>199+</h3>
+                            <p>Anos de história</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>23°C</h3>
+                            <p>Temperatura média</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="city-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atracoes" class="attractions">
+        <div class="container">
+            <h2 class="section-title">Principais Atrações Turísticas</h2>
+            <div class="attractions-grid">
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Conservatório de Tatuí">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Conservatório de Tatuí</h3>
+                        <p>Principal atração da cidade, o Conservatório de Música é um dos maiores e mais importantes da América Latina, com uma vasta programação de concertos e apresentações.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> Varia por evento</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Varia por evento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Museu Histórico">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Museu Histórico "Paulo Setúbal"</h3>
+                        <p>Localizado em um belo prédio histórico, o museu abriga um acervo que narra a história da cidade e de seus personagens ilustres, como o escritor Paulo Setúbal.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 9h-17h (ter-dom)</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Praça da Matriz">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Praça da Matriz Nossa Senhora da Conceição</h3>
+                        <p>O coração do centro histórico, com uma bela igreja, jardins bem cuidados e um ambiente tranquilo para passeios e descanso.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 24h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estação Ferroviária">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Antiga Estação Ferroviária</h3>
+                        <p>Construção histórica que marcou o desenvolvimento da cidade com a chegada da Estrada de Ferro Sorocabana. Hoje, é um ponto de referência e memória.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 24h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Parque">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Parque Ecológico Municipal Maria Tuca</h3>
+                        <p>Ampla área verde com trilhas, lagos, quadras e espaços para atividades ao ar livre, ideal para a prática de esportes e lazer em família.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 9h-17h (sáb-dom)</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1587335694375-8a715f6e4a0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Praça">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Praça Ayrton Senna</h3>
+                        <p>Uma homenagem ao piloto, com busto e uma área de lazer completa, que oferece academia ao ar livre, quadras e parquinho infantil.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 24h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hoteis" class="hotels">
+        <div class="container">
+            <h2 class="section-title">Onde se Hospedar</h2>
+            
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Tatuí">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Del Fiol</h3>
+                    <p>Tradicional hotel no centro da cidade, que oferece conforto e praticidade, a poucos passos dos principais pontos turísticos e comerciais.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-parking"></i> Estacionamento</span>
+                        <span><i class="fas fa-utensils"></i> Café da manhã</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 200/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pousada">
+                </div>
+                <div class="hotel-info">
+                    <h3>Ibis Tatuí</h3>
+                    <p>Uma opção moderna e funcional, ideal para viagens a negócios ou lazer, com a qualidade da rede internacional.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-parking"></i> Estacionamento</span>
+                        <span><i class="fas fa-dog"></i> Aceita pets</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 180/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Fazenda">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Fazenda Villa da Terra</h3>
+                    <p>Localizado em uma área rural, oferece uma experiência de campo com atividades de lazer, tranquilidade e culinária típica.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Piscina</span>
+                        <span><i class="fas fa-horse"></i> Cavalgadas</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 280/noite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="restaurantes" class="restaurants">
+        <div class="container">
+            <h2 class="section-title">Onde Comer</h2>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurante">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Restaurante da Praça</h3>
+                    <p>Restaurante tradicional que serve culinária caseira em um ambiente familiar, com pratos variados e saborosos.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Comida caseira</span>
+                        <span><i class="fas fa-home"></i> Ambiente familiar</span>
+                        <span><i class="fas fa-utensil-spoon"></i> Buffet por quilo</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 45 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Churrascaria">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Churrascaria O Costelão</h3>
+                    <p>Um dos melhores locais para saborear carnes de qualidade em Tatuí, com um rodízio completo e buffet de saladas.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Churrascaria</span>
+                        <span><i class="fas fa-drumstick-bite"></i> Carnes especiais</span>
+                        <span><i class="fas fa-utensil-spoon"></i> Rodízio completo</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 60 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cafeteria">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Panificadora e Doceria</h3>
+                    <p>Ponto de encontro para um café da manhã ou da tarde, com doces, salgados e o famoso "ABC" de Tatuí (doce de abóbora, batata-doce e cidra).</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-bread-slice"></i> Pães e bolos</span>
+                        <span><i class="fas fa-coffee"></i> Café especial</span>
+                        <span><i class="fas fa-cookie"></i> Doces tradicionais</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 25 por pessoa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mapa" class="map-section">
+        <div class="container">
+            <h2 class="section-title">Mapa de Tatuí</h2>
+            <div id="city-map"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Aurora Viagens</h3>
+                    <p>Sua agência de turismo especializada no interior paulista.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <a href="../index.html">Página Inicial</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Pacotes Turísticos</a>
+                    <a href="#">Contato</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Praça da Matriz, s/n, Tatuí/SP</p>
+                    <p><i class="fas fa-phone"></i> (15) 3251-XXXX</p>
+                    <p><i class="fas fa-envelope"></i> contato@auroraviagens.com.br</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Aurora Viagens - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar o mapa
+        function initMap() {
+            // Coordenadas de Tatuí
+            const tatui = { lat: -23.3517, lng: -47.8547 };
+            
+            // Criar o mapa
+            const map = L.map('city-map').setView(tatui, 13);
+            
+            // Adicionar camada do mapa
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Adicionar marcador
+            L.marker(tatui)
+                .addTo(map)
+                .bindPopup('<b>Tatuí</b><br>A Capital da Música!')
+                .openPopup();
+
+            // Adicionar marcadores para pontos turísticos
+            const pontosTuristicos = [
+                { lat: -23.3505, lng: -47.8540, nome: "Conservatório de Tatuí" },
+                { lat: -23.3512, lng: -47.8552, nome: "Museu Histórico Paulo Setúbal" },
+                { lat: -23.3520, lng: -47.8545, nome: "Praça da Matriz" },
+                { lat: -23.3535, lng: -47.8580, nome: "Antiga Estação Ferroviária" },
+            ];
+
+            pontosTuristicos.forEach(ponto => {
+                L.marker([ponto.lat, ponto.lng])
+                    .addTo(map)
+                    .bindPopup(`<b>${ponto.nome}</b>`);
+            });
+        }
+        
+        // Inicializar o mapa quando a página carregar
+        window.onload = initMap;
+    </script>
+</body>
+</html>

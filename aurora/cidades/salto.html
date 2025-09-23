@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salto - Aurora Viagens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="../cidades/cidades.css/cidades.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-compass"></i>
+                    <span>Aurora Viagens</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#atracoes">Atrações</a>
+                    <a href="#hoteis">Hotéis</a>
+                    <a href="#restaurantes">Restaurantes</a>
+                    <a href="#mapa">Mapa</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-city">
+        <img src="https://images.unsplash.com/photo-1542605847-0d385821eaae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Vista de Salto">
+        <div class="hero-content">
+            <h1>Salto</h1>
+            <p>Descubra a Estância Turística que une história, natureza e modernidade</p>
+            <a href="#atracoes" class="btn-primary">Explorar Atrações</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-city">
+        <div class="container">
+            <h2 class="section-title">Sobre Salto</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Salto é um município do estado de São Paulo, que ganhou o título de **Estância Turística** devido às suas belezas naturais e atrações históricas. O nome da cidade deriva da grande cachoeira que existia no Rio Tietê, o "Salto do Tietê", um marco natural que impulsionou o desenvolvimento local. A região, que já foi habitada por índios guaianases, começou a se desenvolver com a chegada dos colonizadores e a construção de uma capela em 1698.</p>
+                    <p>Hoje, com mais de 119 mil habitantes, Salto é uma cidade moderna que soube preservar seu patrimônio. É cortada pelo Rio Tietê, mas em uma região onde suas águas estão mais limpas, o que permite a existência de atrações como o Complexo Turístico da Cachoeira. O município se destaca por seus parques, museus e pela rica história ligada à ferrovia e à industrialização.</p>
+                    <p>Salto é um destino completo, oferecendo desde trilhas e contato com a natureza até passeios culturais e um centro vibrante com opções de lazer e gastronomia.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3>119k</h3>
+                            <p>Habitantes</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>327+</h3>
+                            <p>Anos de história</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>24°C</h3>
+                            <p>Temperatura média</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="city-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atracoes" class="attractions">
+        <div class="container">
+            <h2 class="section-title">Principais Atrações Turísticas</h2>
+            <div class="attractions-grid">
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Igreja Matriz">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Igreja Matriz Nossa Senhora do Monte Serrat</h3>
+                        <p>Principal templo religioso da cidade, com uma arquitetura imponente e bela vista para a Praça XV de Novembro.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 8h-19h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Complexo Turístico">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Complexo Turístico da Cachoeira</h3>
+                        <p>Principal cartão-postal da cidade, com mirantes, pontes e um elevador panorâmico que oferece uma vista espetacular do Rio Tietê e das rochas.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 8h-18h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Varia por atração</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Parque">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Parque da Rocha Moutonnée</h3>
+                        <p>Parque geológico com formações rochosas de granito de milhões de anos, incluindo réplicas de dinossauros eletrônicos em tamanho real.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 8h-17h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Praça">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Praça XV de Novembro</h3>
+                        <p>O coração de Salto, com um coreto histórico, chafariz e área para lazer, onde as famílias se reúnem para passear e relaxar.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 24h</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Centro">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Centro de Lazer do Trabalhador</h3>
+                        <p>Espaço com quadras esportivas, piscinas e áreas verdes, ideal para a prática de exercícios e lazer.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> Varia por temporada</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Varia por atração</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <div class="attraction-image">
+                        <img src="https://images.unsplash.com/photo-1587335694375-8a715f6e4a0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Museu">
+                    </div>
+                    <div class="attraction-content">
+                        <h3>Museu da Cidade</h3>
+                        <p>Acervo que conta a história de Salto, desde a fundação até o desenvolvimento industrial, com exposições fixas e temporárias.</p>
+                        <div class="attraction-meta">
+                            <span><i class="fas fa-clock"></i> 9h-17h (ter-dom)</span>
+                            <span><i class="fas fa-money-bill-wave"></i> Entrada gratuita</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hoteis" class="hotels">
+        <div class="container">
+            <h2 class="section-title">Onde se Hospedar</h2>
+            
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Salto">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Portal de Salto</h3>
+                    <p>Localizado perto do centro, oferece quartos confortáveis e um serviço de qualidade, ideal para sua estadia.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-parking"></i> Estacionamento</span>
+                        <span><i class="fas fa-utensils"></i> Café da manhã</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 220/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pousada">
+                </div>
+                <div class="hotel-info">
+                    <h3>Pousada Recanto da Cachoeira</h3>
+                    <p>Aconchegante e com vistas para a natureza. Oferece tranquilidade e conforto para uma experiência relaxante.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Piscina</span>
+                        <span><i class="fas fa-tree"></i> Área verde</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 180/noite</div>
+                </div>
+            </div>
+
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Simples">
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Ponto Certo</h3>
+                    <p>Hospedagem simples e funcional, ideal para quem busca economia sem abrir mão do conforto.</p>
+                    <div class="hotel-features">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-parking"></i> Estacionamento</span>
+                        <span><i class="fas fa-utensils"></i> Café da manhã</span>
+                    </div>
+                    <div class="hotel-price">A partir de R$ 150/noite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="restaurantes" class="restaurants">
+        <div class="container">
+            <h2 class="section-title">Onde Comer</h2>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurante">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Restaurante da Usina</h3>
+                    <p>Culinária caseira com vista privilegiada para o Complexo Turístico da Cachoeira.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Comida caseira</span>
+                        <span><i class="fas fa-leaf"></i> Ingredientes frescos</span>
+                        <span><i class="fas fa-home"></i> Ambiente familiar</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 45 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Churrascaria">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Churrascaria Salto do Rio</h3>
+                    <p>Rodízio de carnes de qualidade em um ambiente confortável, ideal para um almoço em grupo.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-utensils"></i> Churrascaria</span>
+                        <span><i class="fas fa-drumstick-bite"></i> Carnes especiais</span>
+                        <span><i class="fas fa-utensil-spoon"></i> Opção buffet</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 65 por pessoa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Padaria">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Cafeteria Central</h3>
+                    <p>O lugar perfeito para um café da tarde, com lanches, bolos e um ambiente charmoso no centro da cidade.</p>
+                    <div class="restaurant-features">
+                        <span><i class="fas fa-bread-slice"></i> Doces e bolos</span>
+                        <span><i class="fas fa-coffee"></i> Café especial</span>
+                        <span><i class="fas fa-cookie"></i> Confeitaria</span>
+                    </div>
+                    <div class="restaurant-price">Preço médio: R$ 25 por pessoa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mapa" class="map-section">
+        <div class="container">
+            <h2 class="section-title">Mapa de Salto</h2>
+            <div id="city-map"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Aurora Viagens</h3>
+                    <p>Sua agência de turismo especializada no interior paulista.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <a href="../index.html">Página Inicial</a>
+                    <a href="#">Sobre Nós</a>
+                    <a href="#">Pacotes Turísticos</a>
+                    <a href="#">Contato</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Praça XV de Novembro, s/n, Salto/SP</p>
+                    <p><i class="fas fa-phone"></i> (11) 4029-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@auroraviagens.com.br</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Aurora Viagens - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar o mapa
+        function initMap() {
+            // Coordenadas de Salto
+            const salto = { lat: -23.1979, lng: -47.2858 };
+            
+            // Criar o mapa
+            const map = L.map('city-map').setView(salto, 13);
+            
+            // Adicionar camada do mapa
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Adicionar marcador
+            L.marker(salto)
+                .addTo(map)
+                .bindPopup('<b>Salto</b><br>A Estância Turística de São Paulo!')
+                .openPopup();
+
+            // Adicionar marcadores para pontos turísticos
+            const pontosTuristicos = [
+                { lat: -23.1975, lng: -47.2860, nome: "Igreja Matriz Nossa Senhora do Monte Serrat" },
+                { lat: -23.1990, lng: -47.2880, nome: "Complexo Turístico da Cachoeira" },
+                { lat: -23.2005, lng: -47.2950, nome: "Parque da Rocha Moutonnée" },
+                { lat: -23.1985, lng: -47.2855, nome: "Praça XV de Novembro" },
+            ];
+
+            pontosTuristicos.forEach(ponto => {
+                L.marker([ponto.lat, ponto.lng])
+                    .addTo(map)
+                    .bindPopup(`<b>${ponto.nome}</b>`);
+            });
+        }
+        
+        // Inicializar o mapa quando a página carregar
+        window.onload = initMap;
+    </script>
+</body>
+</html>
