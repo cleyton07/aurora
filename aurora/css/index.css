@@ -672,3 +672,160 @@ a:hover::after {
 h1, h2, h3, p {
     animation: fadeInUpText 1s ease forwards;
 }
+
+
+
+
+/* Menu do usuário logado */
+.user-menu {
+    position: relative;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(106, 13, 173, 0.1);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.user-info:hover {
+    background: rgba(106, 13, 173, 0.2);
+    border-color: var(--roxo-principal);
+}
+
+.user-info i {
+    font-size: 1.3rem;
+    color: var(--roxo-principal);
+}
+
+.user-info span {
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+}
+
+.user-info:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(5px);
+}
+
+.dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.dropdown a i {
+    font-size: 0.9rem;
+    color: #666;
+    width: 16px;
+}
+
+.dropdown a:hover {
+    background: var(--roxo-principal);
+    color: white;
+}
+
+.dropdown a:hover i {
+    color: white;
+}
+
+.dropdown a:last-child {
+    border-bottom: none;
+    color: #ff4444;
+}
+
+.dropdown a:last-child:hover {
+    background: #ff4444;
+    color: white;
+}
+
+/* Botões de auth */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-login, .btn-register {
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-login {
+    background: transparent;
+    border: 2px solid var(--roxo-principal);
+    color: var(--roxo-principal);
+}
+
+.btn-register {
+    background: var(--roxo-principal);
+    border: 2px solid var(--roxo-principal);
+    color: white;
+}
+
+.btn-login:hover {
+    background: var(--roxo-principal);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-register:hover {
+    background: var(--roxo-escuro);
+    border-color: var(--roxo-escuro);
+    transform: translateY(-2px);
+}
+
+
+
+/* Feedback visual durante logout */
+.user-info.logging-out {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Transição suave para mudanças de estado */
+.user-menu, .auth-buttons {
+    transition: all 0.3s ease;
+}
