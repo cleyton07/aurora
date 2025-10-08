@@ -111,7 +111,7 @@
         .hero {
             height: 80vh;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiyz3Yd5-bzyryJqAhH_pb1WMCCceJtuAYXqSSvtWbdDNsGbPnsAYNdkyOoJNSV9FsVKE&usqp=CAU');
+                        url('https://static1.carrocao.com/Fotos/2018/01/20180129434517/4.jpg');
             background-size: cover;
             background-position: center;
             display: flex;

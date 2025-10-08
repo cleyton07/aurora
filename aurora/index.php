@@ -55,14 +55,8 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true): ?>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Descubra o Mundo com a Aurora Viagens</h1>
+            <h1>Descubra o interior com a Aurora Viagens</h1>
             <p>Experiências exclusivas, pacotes personalizados e aventuras inesquecíveis.</p>
-            <div class="search-bar">
-                <input type="text" placeholder="Para onde você quer viajar?">
-                <input type="date">
-                <input type="date">
-                <button><i class="fas fa-search"></i> Buscar</button>
-            </div>
         </div>
     </section>
 
@@ -125,11 +119,9 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true): ?>
             <div class="about-text animate">
                 <h2>Sobre Nós</h2>
                 <p>
-                    Na Aurora Viagens, nosso objetivo é proporcionar experiências únicas e inesquecíveis. 
-                    Selecionamos cuidadosamente cada destino e pacote para garantir conforto, aventura e momentos que ficarão para sempre na sua memória.
-                </p>
-                <p>
-                    Com atendimento personalizado, suporte dedicado e ofertas exclusivas, ajudamos você a planejar a viagem dos seus sonhos de forma simples e segura.
+                Na Aurora Viagens, buscamos transformar cada viagem em uma experiência única e inesquecível. Selecionamos com cuidado cada destino e pacote, garantindo conforto, aventura e momentos que ficarão para sempre na sua memória.
+
+Com atendimento personalizado, suporte dedicado e ofertas exclusivas, ajudamos você a planejar a viagem dos seus sonhos de maneira prática, segura e sem complicações.
                 </p>
                 <button class="btn btn-about">Saiba Mais <i class="fas fa-arrow-right"></i></button>
             </div>
