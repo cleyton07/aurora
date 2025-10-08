@@ -23,8 +23,7 @@
                 <li><a href="../aurora/ia.html">AuroraAssist</a></li>
                 <li><a href="../turismo_page.php">Guia do Interior</a></li>
             </ul>
-        
-           
+            
             <?php
 session_start();
 if (isset($_SESSION['logado']) && $_SESSION['logado'] === true): ?>
@@ -151,22 +150,24 @@ Com atendimento personalizado, suporte dedicado e ofertas exclusivas, ajudamos v
         <p class="copyright">© 2025 Aurora Viagens. Todos os direitos reservados.</p>
     </footer>
 
+
     <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
+    const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
 
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("open");
-        });
-
-
-        
-const aboutImg = document.querySelector(".about-image img");
-
-window.addEventListener("scroll", () => {
-    const offset = window.pageYOffset;
-    aboutImg.style.transform = `translateY(${offset * 0.05}px) scale(1.05)`;
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
 });
+
+// Fechar menu ao clicar em um link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+    });
+});
+</script>
 
 
 
