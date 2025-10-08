@@ -70,7 +70,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true): ?>
             </div>
             <div class="card-content">
                 <h3>Sitio Do Carroção Tatui,sp</h3>
-                <p>Paraíso tropical com praias de águas cristalinas e natureza preservada.</p>
+                <p>Entre o contato com a natureza no Sítio do Carroção, em Tatuí</p>
                 <p class="price"></p>
                 <a href="../aurora/cidades/tatui.html" class="btn">Saiba mais</a>
 
@@ -82,7 +82,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true): ?>
             </div>
             <div class="card-content">
                 <h3>Balonismo, Boituva, sp</h3>
-                <p>A cidade luz, romântica e cheia de cultura e história.</p>
+                <p>Boituva é a Capital do Balonismo, oferecendo passeios incríveis ao amanhecer</p>
                 <p class="price"></p>
                 <a href="../aurora/cidades/boituva.html" class="btn">Saiba mais</a>
 
@@ -94,7 +94,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] === true): ?>
             </div>
             <div class="card-content">
                 <h3>Parque aquatico, Cesario lange</h3>
-                <p>A cidade que nunca dorme, cheia de energia e atrações incríveis.</p>
+                <p>O parque aquático de Cesário Lange é diversão garantida com piscinas e atrações para todas as idades.</p>
                 <p class="price"></p>
                 <a href="../aurora/cidades/cesariolange.html" class="btn">Saiba mais</a>
 
