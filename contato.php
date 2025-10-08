@@ -191,7 +191,7 @@
     <header>
         <div class="container">
             <div class="logo">AURORA VIAGENS</div>
-            <div class="tagline">Descubra novos horizontes com a gente</div>
+            <div class="tagline">Descubra nosso interior com a gente</div>
         </div>
     </header>
 
@@ -246,22 +246,7 @@
             </form>
         </section>
         
-        <div class="info-contato">
-            <div class="info-item">
-                <h3>Telefone</h3>
-                <p>(11) 9999-9999</p>
-            </div>
-            <div class="info-item">
-                <h3>E-mail</h3>
-                <p>contato@auroraviagens.com</p>
-            </div>
-            <div class="info-item">
-                <h3>Horário de Atendimento</h3>
-                <p>Segunda a Sexta: 9h às 18h</p>
-            </div>
-        </div>
-    </div>
-
+       
     <footer>
         <div class="container">
             <p>&copy; 2024 Aurora Viagens. Todos os direitos reservados.</p>
