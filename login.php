@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <div class="container">
+    < <div class="container">
         <div class="logo">
             <h1>🌌 Aurora Viagens</h1>
             <p>Faça login em sua conta</p>
@@ -183,7 +183,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="POST" action="">
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
+                <input type="email" id="email" name="email" required 
+                       value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
             </div>
 
             <div class="form-group">
@@ -198,5 +199,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
         </div>
     </div>
+
+</body>
+
+
+
+</html>
 </body>
 </html>
