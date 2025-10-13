@@ -1044,7 +1044,7 @@
         <nav class="navbar">
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-compass"></i>
+                      <i class="fas fa-plane"></i>
                 </div>
                 <h1>Aurora Viagens</h1>
             </div>
@@ -1266,7 +1266,7 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; 2023 Aurora Viagens. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: #ef4444;"></i></p>
+            <p>&copy; 2023 Aurora Viagens. Todos os direitos reservados.</p>
         </div>
     </footer>
 
