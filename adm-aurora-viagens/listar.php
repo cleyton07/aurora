@@ -112,10 +112,7 @@
     .logo h1 {
         font-size: 1.9rem;
         font-weight: 800;
-        background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-purple) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 2px 15px rgba(139, 92, 246, 0.4);
+        color: white;
         letter-spacing: -0.5px;
     }
     
@@ -504,6 +501,7 @@
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInUp 0.6s ease forwards;
+        cursor: pointer;
     }
     
     @keyframes fadeInUp {
@@ -624,46 +622,184 @@
         gap: 0.5rem;
     }
     
-    .card-actions {
-        display: flex;
-        gap: 0.8rem;
-        margin-top: 1.8rem;
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 2000;
+        overflow-y: auto;
+        padding: 2rem;
     }
-    
-    .btn-action {
-        flex: 1;
-        padding: 0.9rem 1.2rem;
-        border-radius: 10px;
-        font-weight: 600;
-        text-decoration: none;
+
+    .modal-content {
+        background: var(--gradient-card);
+        margin: 0 auto;
+        max-width: 1000px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-hover), var(--shadow-glow);
+        border: 1px solid var(--card-border);
+        overflow: hidden;
+        animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .modal-header {
+        background: var(--darker-bg);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-light);
+    }
+
+    .close-modal {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: var(--transition);
+        border-radius: 6px;
+    }
+
+    .close-modal:hover {
+        color: var(--primary-light);
+        background: rgba(139, 92, 246, 0.1);
+    }
+
+    .modal-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        min-height: 500px;
+    }
+
+    .modal-image {
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .modal-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .modal-details {
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        overflow-y: auto;
+        max-height: 500px;
+    }
+
+    .modal-type {
+        background: var(--gradient-primary);
+        color: var(--text-light);
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        display: inline-block;
+        width: fit-content;
+    }
+
+    .modal-description {
+        color: var(--text-light);
+        line-height: 1.7;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .modal-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: auto;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .meta-item {
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 6px;
-        transition: var(--transition);
+        gap: 0.8rem;
+        color: var(--text-muted);
         font-size: 0.9rem;
-        border: 1px solid transparent;
     }
-    
-    
-    
-    .btn-edit:hover {
-        background: rgba(245, 158, 11, 0.2);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+
+    .meta-item i {
+        color: var(--primary-light);
+        width: 16px;
     }
-    
-    .btn-delete {
-        background: rgba(239, 68, 68, 0.1);
-        color: #EF4444;
-        border-color: rgba(239, 68, 68, 0.2);
-        cursor: pointer;
+
+    /* Responsive Modal */
+    @media (max-width: 968px) {
+        .modal-body {
+            grid-template-columns: 1fr;
+        }
+        
+        .modal-image {
+            height: 300px;
+        }
+        
+        .modal-details {
+            max-height: none;
+            padding: 2rem;
+        }
     }
-    
-    .btn-delete:hover {
-        background: rgba(239, 68, 68, 0.2);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+
+    @media (max-width: 768px) {
+        .modal {
+            padding: 1rem;
+        }
+        
+        .modal-header {
+            padding: 1.2rem 1.5rem;
+        }
+        
+        .modal-details {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .modal-content {
+            margin: 0;
+        }
+        
+        .modal-header {
+            padding: 1rem;
+        }
+        
+        .modal-details {
+            padding: 1.2rem;
+        }
     }
     
     /* Empty State */
@@ -873,10 +1009,6 @@
             padding: 1rem;
         }
         
-        .card-actions {
-            flex-direction: column;
-        }
-        
         header {
             padding: 1rem;
         }
@@ -918,14 +1050,12 @@
             </div>
             
             <div class="nav-links">
-                <a href="index.html">Início</a>
+                <a href="../aurora/index.php">Home</a>
                 <a href="listar.php" class="active">Locais</a>
                 <a href="#destinations">Destinos</a>
                 <a href="#hotels">Hotéis</a>
                 <a href="#restaurants">Restaurantes</a>
             </div>
-            
-            
         </nav>
     </header>
 
@@ -933,11 +1063,8 @@
     <section class="page-hero">
         <div class="hero-background"></div>
         <h1 class="page-title">Aurora Viagens</h1>
-        <p class="page-subtitle">Turismo no interio de sp, melhores destinos, hoteis e restaurantes</p>
-        
+        <p class="page-subtitle">Turismo no interior de SP, melhores destinos, hotéis e restaurantes</p>
     </section>
-
-    
 
     <!-- Controls Section -->
     <section class="controls-section">
@@ -1012,12 +1139,6 @@
                                 <div class="card-meta">
                                     <span><i class="far fa-calendar"></i> '.date('d/m/Y', strtotime($row['criado_em'])).'</span>
                                     <span><i class="fas fa-tag"></i> '.$row['tipo'].'</span>
-                                </div>  
-                                <div class="card-actions">
-                                    <a href="editar.php?id='.$row['id'].'" class="btn-action btn-edit">
-                                       
-                                    </a>
-                                   
                                 </div>
                             </div>
                         </div>
@@ -1027,10 +1148,6 @@
                     // Atualizar estatísticas via JavaScript
                     echo '
                     <script>
-                        document.getElementById("totalLocations").textContent = "'.$total.'";
-                        document.getElementById("hotelsCount").textContent = "'.$hotels.'";
-                        document.getElementById("restaurantsCount").textContent = "'.$restaurants.'";
-                        document.getElementById("tourismCount").textContent = "'.$tourism.'";
                         document.getElementById("resultsCount").textContent = "'.$total.' locais encontrados";
                     </script>
                     ';
@@ -1078,6 +1195,40 @@
         </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal" id="locationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Detalhes do Local</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Imagem do local">
+                </div>
+                <div class="modal-details">
+                    <span class="modal-type" id="modalType">Tipo</span>
+                    <h3 class="modal-title" id="modalName">Nome do Local</h3>
+                    <p class="modal-description" id="modalDescription">Descrição do local...</p>
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <i class="far fa-calendar"></i>
+                            <span id="modalDate">Data de cadastro</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Interior de São Paulo</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-tag"></i>
+                            <span id="modalCategory">Categoria</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1095,7 +1246,7 @@
             <div class="footer-column">
                 <h3>Navegação</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="../aurora/index.php"><i class="fas fa-chevron-right"></i> Home</a></li>
                     <li><a href="listar.php"><i class="fas fa-chevron-right"></i> Locais Cadastrados</a></li>
                     <li><a href="#destinations"><i class="fas fa-chevron-right"></i> Destinos</a></li>
                     <li><a href="#hotels"><i class="fas fa-chevron-right"></i> Hotéis</a></li>
@@ -1121,18 +1272,105 @@
 
     <script>
         // Elementos do DOM
+        const modal = document.getElementById('locationModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalName = document.getElementById('modalName');
+        const modalType = document.getElementById('modalType');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalDate = document.getElementById('modalDate');
+        const modalCategory = document.getElementById('modalCategory');
+        const closeModal = document.querySelector('.close-modal');
         const searchInput = document.getElementById('searchInput');
         const typeFilter = document.getElementById('typeFilter');
         const sortFilter = document.getElementById('sortFilter');
         const locationsGrid = document.getElementById('locationsGrid');
         const resultsCount = document.getElementById('resultsCount');
-        const locationCards = document.querySelectorAll('.location-card');
-        
+
+        // Fazer todos os cards clicáveis
+        document.addEventListener('DOMContentLoaded', function() {
+            const locationCards = document.querySelectorAll('.location-card');
+            
+            locationCards.forEach(card => {
+                card.style.cursor = 'pointer';
+                
+                card.addEventListener('click', function() {
+                    const name = this.querySelector('h3').textContent;
+                    const description = this.querySelector('p').textContent;
+                    const image = this.querySelector('img').src;
+                    const type = this.querySelector('.location-type').textContent;
+                    const date = this.querySelector('.card-meta span:first-child').textContent;
+                    
+                    openModal({
+                        name: name,
+                        description: description,
+                        image: image,
+                        type: type,
+                        date: date
+                    });
+                });
+            });
+
+            filterLocations();
+            
+            // Adicionar efeito de digitação no título
+            const title = document.querySelector('.page-title');
+            const text = title.textContent;
+            title.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    title.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 500);
+        });
+
+        // Função para abrir modal
+        function openModal(location) {
+            modalImage.src = location.image;
+            modalImage.alt = location.name;
+            modalName.textContent = location.name;
+            modalType.textContent = location.type;
+            modalDescription.textContent = location.description;
+            modalDate.textContent = location.date;
+            modalCategory.textContent = location.type;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fechar modal
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Fechar modal ao clicar fora
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Fechar modal com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
         // Função para filtrar locais
         function filterLocations() {
             const searchTerm = searchInput.value.toLowerCase();
             const typeValue = typeFilter.value;
             const sortValue = sortFilter.value;
+            const locationCards = document.querySelectorAll('.location-card');
             
             let visibleCount = 0;
             let cardsArray = Array.from(locationCards);
@@ -1162,7 +1400,6 @@
                     return nameA.localeCompare(nameB);
                 });
             } else if (sortValue === 'oldest') {
-                // Implementação simplificada - em produção, usar dados reais
                 cardsArray.reverse();
             }
             
@@ -1184,52 +1421,6 @@
         searchInput.addEventListener('input', filterLocations);
         typeFilter.addEventListener('change', filterLocations);
         sortFilter.addEventListener('change', filterLocations);
-        
-        // Funcionalidade de exclusão (simulação)
-        document.querySelectorAll('.btn-delete').forEach(button => {
-            button.addEventListener('click', function() {
-                const locationId = this.getAttribute('data-id');
-                const locationName = this.getAttribute('data-name');
-                
-                if (confirm(`Tem certeza que deseja excluir o local "${locationName}"? Esta ação não pode ser desfeita.`)) {
-                    // Simulação de exclusão
-                    const card = this.closest('.location-card');
-                    card.style.transform = 'scale(0.9)';
-                    card.style.opacity = '0.5';
-                    this.disabled = true;
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Excluindo...';
-                    
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                        // Em um sistema real, faria uma requisição AJAX para excluir do banco
-                        // e atualizaria as estatísticas
-                        alert(`Local "${locationName}" excluído com sucesso!`);
-                        location.reload(); // Recarregar para atualizar estatísticas
-                    }, 1500);
-                }
-            });
-        });
-        
-        // Inicializar filtros
-        document.addEventListener('DOMContentLoaded', function() {
-            filterLocations();
-            
-            // Adicionar efeito de digitação no título
-            const title = document.querySelector('.page-title');
-            const text = title.textContent;
-            title.textContent = '';
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    title.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-            
-            setTimeout(typeWriter, 500);
-        });
     </script>
 </body>
-</html> 
+</html>
