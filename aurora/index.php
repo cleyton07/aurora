@@ -19,7 +19,7 @@
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="../aurora/pacotes.html">Destinos</a></li>
-                <li><a href="../contato.php">Contato</a></li>
+                <li><a href="../formulario/index.php">Contato</a></li>
                 <li><a href="../aurora/ia.html">AuroraAssist</a></li>
                 <li><a href="../adm-aurora-viagens/listar.php">Guia do Interior</a></li>
             </ul>
