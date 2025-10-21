@@ -22,6 +22,7 @@
                 <li><a href="../formulario/index.php">Contato</a></li>
                 <li><a href="../aurora/ia.html">AuroraAssist</a></li>
                 <li><a href="../adm-aurora-viagens/listar.php">Guia do Interior</a></li>
+                <li><a href="../galeria_fotos/fotos.html">Galeria de Fotos</a></li>
             </ul>
             
             <?php

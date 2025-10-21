@@ -1036,11 +1036,45 @@
     ::-webkit-scrollbar-thumb:hover {
         background: var(--primary-darker);
     }
+
+
+     /* ESTILO DO BOTÃO VOLTAR */
+     .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .back-button:hover {
+      background: var(--primary-color);
+      transform: translateX(-5px);
+      box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+    }
 </style>
 </head>
 <body>
     <!-- Header -->
     <header>
+
+  <!-- BOTÃO VOLTAR ADICIONADO AQUI -->
+  <a href="../aurora/index.php" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Voltar
+      </a>
         <nav class="navbar">
             <div class="logo">
                 <div class="logo-icon">

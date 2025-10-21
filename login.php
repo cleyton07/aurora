@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['usuario_email'] = $usuario['email'];
                     $_SESSION['logado'] = true;
                     
-                    header("Location: ./aurora/index.php");
+                    header("Location:");
                     exit();
                 } else {
                     $erro = "Senha incorreta!";
