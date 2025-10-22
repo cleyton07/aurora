@@ -8,5 +8,3 @@ CREATE TABLE usuarios (
     senha VARCHAR(255) NOT NULL,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-
